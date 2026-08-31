@@ -1,5 +1,4 @@
 package com.example.Internship.Config;
-
 import com.example.Internship.Security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -50,9 +49,11 @@ public class SecurityConfig {
                                 "/api/experiences/**",
                                 "/api/jobs/**",
                                 "/api/job-ads/**",
-                                "/api/admin/**",
-                                "/api/student/personality/questions" // ✅ آدرس دقیقاً بر اساس ساختار کنترلر اصلاح شد
+                                "/api/student/personality/questions"
                         ).permitAll()
+
+                        // --- پنل ادمین (محدود به نقش ADMIN) ---
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
                         // --- پنل دانشجو (محدود به نقش STUDENT) ---
                         .requestMatchers("/api/student/**").hasRole("STUDENT")
