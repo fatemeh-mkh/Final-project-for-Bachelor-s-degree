@@ -86,7 +86,7 @@ public class AuthService {
     }
 
     // ===============================
-    // STUDENT LOGIN (فقط برای دانشجوها)
+    // STUDENT + ADMIN LOGIN
     // ===============================
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(
@@ -96,8 +96,10 @@ public class AuthService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("کاربر پیدا نشد"));
 
-        // تفکیک نقش: اگر کاربر شرکت باشد، اجازه ورود از فرم دانشجو را ندارد
-        if (user.getRole() != Role.STUDENT) {
+        // تفکیک نقش:
+        // STUDENT و ADMIN از این مسیر می‌توانند وارد شوند
+        // COMPANY باید از مسیر مخصوص شرکت‌ها وارد شود
+        if (user.getRole() == Role.COMPANY) {
             throw new RuntimeException("لطفاً از بخش ورود شرکت‌ها استفاده کنید.");
         }
 
