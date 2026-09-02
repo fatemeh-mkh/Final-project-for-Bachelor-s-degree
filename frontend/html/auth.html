@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود و ثبت‌نام دانشجویی | پلتفرم کارآموزی اینترنو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="auth-wrapper">
+        <div class="container">
+
+            <!-- لوگو -->
+            <div class="auth-logo">
+                <a href="index.html">inter<span>no</span></a>
+            </div>
+
+            <div class="form-container">
+
+                <!-- فرم ورود -->
+                <div class="form-box login-box">
+                    <form id="loginForm" novalidate>
+                        <h1>خوش آمدید</h1>
+                        <p>وارد حساب کاربری دانشجویی خود شوید</p>
+
+                        <div class="input-group">
+                            <input type="email" id="loginEmail" placeholder="ایمیل دانشجویی" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" id="loginPassword" placeholder="رمز عبور" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+
+                        <button type="submit" class="btn-glow" id="loginBtn">ورود</button>
+
+                        <span class="switch-text">
+                            حساب ندارید؟ <b id="toSignUp">ثبت‌نام کنید</b>
+                        </span>
+
+                        <hr>
+
+                        <span class="switch-text">
+                            پنل مخصوص <a href="register-company.html">ورود / ثبت‌نام شرکت‌ها</a>
+                        </span>
+                    </form>
+                </div>
+
+                <!-- فرم ثبت‌نام -->
+                <div class="form-box signup-box" style="display: none;">
+                    <form id="registerForm" novalidate>
+                        <h1>ساخت حساب دانشجویی</h1>
+                        <p>اطلاعات خود را برای عضویت وارد کنید</p>
+
+                        <div class="input-group">
+                            <input type="text" id="regName" placeholder="نام و نام خانوادگی" required>
+                            <i class="fas fa-user"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" id="regEmail" placeholder="ایمیل دانشجویی" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" id="regPassword" placeholder="رمز عبور (حداقل ۶ کاراکتر)" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+
+                        <button type="submit" class="btn-glow success" id="registerBtn">ثبت‌نام</button>
+
+                        <span class="switch-text">
+                            قبلاً عضو شده‌اید؟ <b id="toLogin">وارد شوید</b>
+                        </span>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/layout-loader.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

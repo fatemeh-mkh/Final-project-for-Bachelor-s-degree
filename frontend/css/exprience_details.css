@@ -1,0 +1,448 @@
+/* ==========================================================================
+   exprience_details.css (PREMIUM COSMOS BLUE - SWAPPED & RESIZED COLUMNS)
+   ========================================================================== */
+
+   @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
+
+   /* ==========================================================================
+      ۱. متغیرهای سراسری (منطبق بر پالت دقیق تصاویر و سیستم اینترنو)
+      ========================================================================== */
+   :root {
+       --color-primary: #2563eb;       /* آبی سلطنتی اصلی */
+       --color-primary-dark: #1d4ed8;  /* آبی تیره وضعیت‌های فعال */
+       --color-accent: #0284c7;        /* آبی آسمانی مکمل */
+       --color-bg: #eff6ff;            /* رنگ پس‌زمینه لایت دقیقاً مطابق تصویر پالت */
+       
+       --text-dark: #0f172a;           /* رنگ متون اصلی */
+       --text-muted: #64748b;          /* رنگ متون فرعی */
+       
+       /* متغیرهای اختصاصی فوتر تیره و هیرو سیستم (Cosmos Blue Premium) */
+       --navy: #0f172a;                /* لایه اصلی و عمیق سرمه‌ای */
+       --deep-blue: #090d16;           /* تفکیک رنگی عمیق‌تر زیر صفحه فوتر */
+       --border-rich: rgba(255, 255, 255, 0.08);
+       --blue-400: #38bdf8;            /* آبی روشن برای درخشش عناوین در تم تیره */
+       --blue-200: #94a3b8;            /* متن ثانویه ملایم فوتر */
+       --gold: #f59e0b;                /* طلایی پالت در حالت هوور */
+       
+       /* گلس‌مورفیسم صفحات روشن برای کارت‌ها */
+       --glass-bg: rgba(255, 255, 255, 0.95);
+       --glass-border: rgba(219, 234, 254, 0.7);
+       
+       --radius-outer: 24px;
+       --radius-inner: 12px;
+       
+       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+       --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.04);
+       --shadow-blue: 0 10px 30px rgba(37, 99, 235, 0.15);
+       
+       --navbar-height: 68px;
+   }
+   
+   /* ==========================================================================
+      ۲. پایه‌های صفحه
+      ========================================================================== */
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       font-family: "Vazirmatn", system-ui, sans-serif;
+   }
+   
+   html, body {
+       height: 100%;
+   }
+   
+   body {
+       background: var(--color-bg);
+       color: var(--text-dark);
+       direction: rtl;
+       line-height: 1.9;
+       -webkit-font-smoothing: antialiased;
+       display: flex;
+       flex-direction: column;
+   }
+   
+   /* ==========================================================================
+      ۳. هیرو سکشن (مطابق تصویر image_644e04.jpg)
+      ========================================================================== */
+   .experience-hero {
+       margin-top: var(--navbar-height);
+       background: #0f172a; 
+       color: white;
+       padding: 60px 0 120px 0; 
+       text-align: center;
+       border-bottom-left-radius: 40px;
+       border-bottom-right-radius: 40px;
+       position: relative;
+   }
+   
+   .hero-inner {
+       max-width: 1240px;
+       margin: auto;
+       padding: 0 2rem;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 12px;
+   }
+   
+   #expTitle {
+       font-size: 32px;
+       font-weight: 800;
+       color: #ffffff;
+   }
+   
+   .hero-company {
+       display: inline-flex;
+       align-items: center;
+       gap: 6px;
+       font-size: 14px;
+       color: var(--blue-400);
+   }
+   
+   .hero-rating {
+       display: none; 
+   }
+   
+   /* ==========================================================================
+      ۴. لایوت اصلی صفحه و جابه‌جایی ستون‌ها (توضیحات راست بزرگ / اطلاعات چپ کوچک)
+      ========================================================================== */
+   .container {
+       max-width: 1240px;
+       margin: -70px auto 60px auto; 
+       padding: 0 2rem;
+       position: relative;
+       z-index: 10;
+       width: 100%;
+   }
+   
+   .experience-layout {
+       display: grid;
+       /* تغییر نسبت ستون‌ها: ستون اول (توضیحات راست) بزرگتر با ضریب 2.3 و ستون دوم (اطلاعات چپ) کوچکتر با ضریب 1 */
+       grid-template-columns: 2.3fr 1fr; 
+       gap: 30px;
+       align-items: start;
+   }
+   
+   .glass-card {
+       background: #ffffff;
+       border: 1px solid var(--glass-border);
+       border-radius: var(--radius-outer);
+       box-shadow: var(--shadow-md);
+       padding: 35px;
+       transition: all 0.3s ease;
+   }
+   
+   /* تراز کردن محتوای داخلی کارت‌ها به راست بعد از جابه‌جایی ستون‌ها */
+   .detail-card, .info-card {
+       direction: rtl;
+   }
+   
+   /* ==========================================================================
+      ۵. بخش سمت راست: توضیحات تجربه (طویل‌تر و بزرگ‌تر)
+      ========================================================================== */
+   .detail-card h3 {
+       font-size: 18px;
+       font-weight: 800;
+       margin-bottom: 20px;
+       color: var(--text-dark);
+       display: flex;
+       align-items: center;
+       gap: 10px;
+   }
+   
+   .detail-card h3::before {
+       content: '';
+       display: inline-block;
+       width: 4px;
+       height: 20px;
+       background: var(--color-primary);
+       border-radius: 4px;
+   }
+   
+   #expDescription {
+       font-size: 15px;
+       color: #475569;
+       line-height: 2;
+       text-align: justify;
+   }
+   
+   /* ==========================================================================
+      ۶. بخش سمت چپ: کادر اطلاعات تجربه (کوچک‌تر و جمع‌وجورتر)
+      ========================================================================== */
+   .info-card h4 {
+       font-size: 16px;
+       font-weight: 800;
+       margin-bottom: 25px;
+       color: var(--text-dark);
+       padding-bottom: 12px;
+       border-bottom: 1px dashed #e2e8f0;
+   }
+   
+   .info-item {
+       display: flex;
+       justify-content: space-between; 
+       align-items: center;
+       padding: 12px 0;
+   }
+   
+   .info-item span {
+       font-size: 13.5px;
+       color: var(--text-muted);
+       font-weight: 500;
+       order: 2; 
+   }
+   
+   .info-item strong {
+       font-size: 13.5px;
+       font-weight: 700;
+       color: var(--text-dark);
+       background: #f8fafc;
+       padding: 6px 14px;
+       border-radius: var(--radius-inner);
+       border: 1px solid #e2e8f0;
+       box-shadow: var(--shadow-sm);
+       order: 1;
+   }
+   
+   .info-item:last-child strong {
+       background: #eff6ff;
+       color: var(--color-primary);
+       border-color: #bfdbfe;
+   }
+   
+   /* ==========================================================================
+      ۷. فوتر اینترنو — پالت تیره و حرفه‌ای Cosmos Blue (Premium UI)
+      ========================================================================== */
+   .main-footer {
+       flex-shrink: 0;
+       width: 100%;
+       background: var(--navy); 
+       border-top: 1px solid var(--border-rich);
+       padding-top: 60px;
+       margin-top: auto;
+       font-family: 'Vazirmatn', sans-serif;
+       color: #ffffff;
+       direction: rtl;
+   }
+   
+   .footer-container {
+       max-width: 1240px;
+       margin: 0 auto;
+       padding: 0 2rem 40px 2rem;
+       display: grid;
+       grid-template-columns: 1.5fr 1fr 1fr 1fr;
+       gap: 50px;
+   }
+   
+   .footer-column {
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .footer-column h3 {
+       font-size: 15px;
+       font-weight: 800;
+       color: var(--blue-400); 
+       margin-bottom: 24px;
+       position: relative;
+       padding-bottom: 10px;
+       letter-spacing: 0.5px;
+   }
+   
+   .footer-column h3::after {
+       content: '';
+       position: absolute;
+       bottom: 0;
+       right: 0;
+       width: 28px;
+       height: 3px;
+       background: var(--blue-400);
+       border-radius: 4px;
+   }
+   
+   .footer-column ul {
+       list-style: none;
+       padding: 0;
+       margin: 0;
+       display: flex;
+       flex-direction: column;
+       gap: 12px;
+   }
+   
+   .footer-column ul li {
+       perspective: 1000px;
+   }
+   
+   .footer-column ul li a {
+       font-size: 13.5px;
+       font-weight: 400;
+       color: var(--blue-200); 
+       text-decoration: none;
+       display: inline-block;
+       padding: 4px 0;
+       transition: color 0.3s ease, transform 0.3s ease, padding-right 0.3s ease;
+   }
+   
+   .footer-column ul li a:hover {
+       color: var(--gold); 
+       padding-right: 6px;
+       text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+   }
+   
+   .brand-column {
+       gap: 18px;
+   }
+   
+   .brand-column .brand-logo {
+       font-weight: 900;
+       font-size: 22px;
+       color: var(--blue-400) !important;
+       text-decoration: none;
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       letter-spacing: -0.5px;
+   }
+   
+   .brand-column .brand-logo::before {
+       content: '';
+       width: 6px;
+       height: 20px;
+       background: var(--gold);
+       border-radius: 20px;
+       display: inline-block;
+       transform: rotate(15deg);
+   }
+   
+   .brand-column .brand-logo span {
+       color: #ffffff;
+       font-weight: 300;
+   }
+   
+   .brand-desc {
+       font-size: 13px;
+       font-weight: 400;
+       color: var(--blue-200);
+       opacity: 0.85;
+       line-height: 1.8;
+       max-width: 300px;
+       margin: 0;
+       text-align: justify;
+   }
+   
+   /* بخش زیرین فوتر — ساختار شیک متصل (Deep Blue) */
+   .footer-bottom {
+       width: 100%;
+       background-color: var(--deep-blue); 
+       border-top: 1px solid rgba(255, 255, 255, 0.04);
+       padding: 22px 0;
+   }
+   
+   .footer-bottom-container {
+       max-width: 1240px;
+       margin: 0 auto;
+       padding: 0 2rem;
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+   }
+   
+   .copyright-text {
+       font-size: 12.5px;
+       font-weight: 400;
+       color: var(--blue-200);
+       opacity: 0.75;
+       margin: 0;
+   }
+   
+   .language-selector {
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       background-color: rgba(255, 255, 255, 0.03);
+       border: 1px solid rgba(255, 255, 255, 0.08);
+       padding: 6px 14px;
+       border-radius: 8px;
+       color: var(--blue-200);
+       transition: all 0.3s ease;
+       direction: ltr; 
+   }
+   
+   .language-selector:hover {
+       border-color: rgba(245, 158, 11, 0.4);
+       background-color: rgba(245, 158, 11, 0.05);
+       color: #ffffff;
+   }
+   
+   .language-selector i {
+       font-size: 13px;
+       color: var(--gold);
+   }
+   
+   .language-selector select {
+       border: none;
+       background: transparent;
+       font-family: inherit;
+       font-size: 12.5px;
+       font-weight: 600;
+       color: inherit;
+       outline: none;
+       cursor: pointer;
+       padding-right: 4px;
+   }
+   
+   .language-selector select option {
+       background-color: var(--deep-blue);
+       color: #ffffff;
+       font-family: sans-serif;
+   }
+   
+   /* ==========================================================================
+      ۸. سیستم ریسپانسیو کاملاً سازگار (Responsive Grid)
+      ========================================================================== */
+   @media (max-width: 992px) {
+       .experience-layout {
+           grid-template-columns: 1fr; /* در حالت موبایل و تبلت، کارت‌ها زیر هم قرار می‌گیرند */
+       }
+       .container {
+           margin-top: -40px;
+       }
+       .footer-container {
+           grid-template-columns: 1fr 1fr;
+           gap: 35px;
+       }
+   }
+   
+   @media (max-width: 576px) {
+       .experience-hero {
+           padding: 50px 0 90px 0;
+       }
+       
+       #expTitle {
+           font-size: 24px;
+       }
+       
+       .glass-card {
+           padding: 24px;
+       }
+   
+       .footer-container {
+           grid-template-columns: 1fr;
+           text-align: center;
+           gap: 40px;
+       }
+       .footer-column h3::after {
+           right: 50%;
+           transform: translateX(50%);
+       }
+       .brand-column {
+           align-items: center;
+       }
+       .footer-bottom-container {
+           flex-direction: column;
+           gap: 16px;
+           text-align: center;
+       }
+   }

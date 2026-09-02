@@ -1,0 +1,951 @@
+/* ==========================================================================
+   Interno.css — پالت Cosmos Blue | صفحه اصلی اینترنو (نسخه بهینه‌شده و مدرن)
+   ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
+
+   :root {
+       /* رنگ‌های پایه پالت کیهانی */
+       --azure:        #2563EB;
+       --royal:        #1D4ED8;
+       --gold:         #F59E0B;
+       --gold-dark:    #B45309;
+       --navy:         #0F172A;
+       --deep-blue:    #1E3A5F;
+       --sky:          #EFF6FF;
+       --haze:         #DBEAFE;
+       --blue-200:     #BFDBFE;
+       --blue-400:     #60A5FA;
+   
+       /* رنگ‌های پس‌زمینه و المان‌ها */
+       --bg-page:       #EFF6FF;
+       --bg-card:       rgba(255, 255, 255, 0.80);
+       --bg-card-inner: #ffffff;
+       --border-subtle: rgba(37, 99, 235, 0.08);
+       --border-rich:   rgba(37, 99, 235, 0.25);
+       --text-main:     #0F172A;
+       --text-muted:    #334155;
+   
+       /* شعاع‌ها */
+       --radius-lg:  20px;
+       --radius-md:  14px;
+       --radius-sm:  10px;
+   
+       /* سایه‌های چندلایه مدرن */
+       --shadow-sm:     0 4px 12px rgba(37, 99, 235, 0.03);
+       --shadow-md:     0 20px 40px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(37, 99, 235, 0.04);
+       --shadow-accent: 0 10px 25px rgba(37, 99, 235, 0.2);
+       --transition:    all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+   }
+   
+   /* ==========================================================================
+      پایه‌ریزی و استایل‌های عمومی
+      ========================================================================== */
+   * { 
+       margin: 0; 
+       padding: 0; 
+       box-sizing: border-box; 
+   }
+   
+   body {
+       font-family: "Vazirmatn", system-ui, sans-serif;
+       background-color: var(--bg-page);
+       color: var(--text-main);
+       line-height: 1.8;
+       overflow-x: hidden;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+       direction: rtl;
+       padding: 0;
+       margin: 0;
+   }
+   
+   a { 
+       text-decoration: none; 
+       color: inherit; 
+       transition: var(--transition); 
+   }
+   
+   img {
+       max-width: 100%;
+       height: auto;
+   }
+   
+   /* ==========================================================================
+      بخش هیرو جدید — ساختار دو ستونه مدرن و درخشان
+      ========================================================================== */
+   .hero-section {
+    min-height: 640px;
+    padding: 100px 2rem 60px;
+    background: radial-gradient(circle at 85% 15%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 15% 85%, rgba(245, 158, 11, 0.04) 0%, transparent 50%),
+                linear-gradient(160deg, #EFF6FF 0%, #DBEAFE 50%, #EFF6FF 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* ستون متنی */
+.hero-text-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+}
+
+.hero-badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    backdrop-filter: blur(10px);
+    color: var(--royal);
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.04);
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    background: linear-gradient(135deg, var(--azure) 0%, var(--royal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: 16.5px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 36px;
+    max-width: 640px;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* بخش آمار عددی */
+.hero-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-item strong {
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 900;
+}
+
+.stat-item span {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(15, 23, 42, 0.1);
+}
+
+/* ستون گرافیکی افکت شیشه‌ای مدرن و بهینه‌شده */
+.hero-visual-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.visual-glass-card {
+    width: 100%;
+    max-width: 300px; /* عرض کادر کمتر و بهینه‌تر شد */
+    height: 290px;    /* ارتفاع متناسب با عرض کاهش یافت */
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-glow-effect {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    top: -40px;
+    right: -40px;
+    pointer-events: none;
+}
+
+.visual-header {
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.window-dots .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #FF5F56; }
+.dot.yellow { background: #FFBD2E; }
+.dot.green { background: #27C93F; }
+
+.window-title {
+    font-size: 11px;
+    font-family: monospace;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.visual-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 15px;
+}
+
+/* تغییر از ساختار ai به engin */
+.engin-pulse-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--azure) 0%, var(--royal) 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+    margin-bottom: 18px;
+    position: relative;
+}
+
+/* انیمیشن پالس ملایم دور دایره موتور */
+.engin-pulse-circle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--azure);
+    animation: h-pulse 2.5s infinite linear;
+}
+
+@keyframes h-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+.mock-data-lines {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.mock-data-lines .line {
+    height: 5px;
+    background: rgba(15, 23, 42, 0.08);
+    border-radius: 10px;
+}
+
+.line.long { width: 100%; }
+.line.medium { width: 80%; }
+.line.short { width: 50%; }
+
+/* تگ‌های شناور شیک روی کارت بصری */
+.floating-badge {
+    position: absolute;
+    background: #ffffff;
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(37, 99, 235, 0.05);
+}
+
+.badge-1 {
+    top: 20px;
+    right: -10px;
+    animation: float-y 4s ease-in-out infinite;
+}
+
+.badge-2 {
+    bottom: 35px;
+    left: -10px;
+    animation: float-y 4s ease-in-out infinite 2s;
+}
+
+@keyframes float-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.toast-link {
+    color: var(--gold-dark) !important;
+    font-weight: 800;
+    margin-right: 4px;
+    border-bottom: 2px dashed var(--gold);
+}
+
+/* ریسپانسیو اختصاصی بخش هیرو */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .hero-text-side {
+        align-items: center;
+        text-align: center;
+    }
+    .hero-title { font-size: 38px; }
+    .hero-subtitle { margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 32px; }
+    .hero-cta-group { flex-direction: column; width: 100%; }
+    .hero-cta-group .btn { width: 100%; }
+    .visual-glass-card { height: 260px; }
+    .badge-1, .badge-2 { position: relative; top: auto; bottom: auto; left: auto; right: auto; margin-top: 10px; }
+    .visual-body { gap: 10px; }
+}
+   
+   /* دکمه‌های بهبود یافته */
+   .btn {
+       padding: 14px 32px;
+       border-radius: var(--radius-md);
+       font-size: 14.5px;
+       font-weight: 700;
+       cursor: pointer;
+       transition: var(--transition);
+       border: none;
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       gap: 10px;
+       font-family: inherit;
+   }
+   
+   .btn-primary-glow {
+       background: linear-gradient(135deg, var(--azure) 0%, var(--royal) 100%);
+       color: #fff;
+       box-shadow: var(--shadow-accent);
+       min-width: 210px;
+   }
+   
+   .btn-primary-glow:hover {
+       transform: translateY(-4px);
+       box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+   }
+   
+   /* توست نوتیفیکیشن ثابت پایین صفحه */
+   .hero-toast {
+       display: none;
+       align-items: center;
+       gap: 12px;
+       background: rgba(254, 243, 199, 0.95);
+       border: 1px solid rgba(245, 158, 11, 0.4);
+       backdrop-filter: blur(12px);
+       color: #92400E;
+       padding: 16px 26px;
+       border-radius: var(--radius-md);
+       font-size: 14px;
+       font-weight: 600;
+       position: fixed;
+       bottom: 32px;
+       left: 50%;
+       transform: translateX(-50%);
+       z-index: 9999;
+       white-space: nowrap;
+       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+       animation: toastUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+   }
+   
+   .hero-toast.show { 
+       display: inline-flex; 
+   }
+   
+   @keyframes toastUp {
+       from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+       to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+   }
+   
+   /* ==========================================================================
+      بخش ویژگی‌ها (Features Section)
+      ========================================================================= */
+   .features-section { 
+       background: var(--bg-page); 
+   }
+   
+   .section-container {
+       max-width: 1200px;
+       margin: 0 auto;
+       padding: 100px 2rem;
+   }
+   
+   .section-title {
+       text-align: center;
+       font-size: 32px;
+       font-weight: 900;
+       color: var(--navy);
+       margin-bottom: 14px;
+   }
+   
+   .section-subtitle {
+       text-align: center;
+       font-size: 15px;
+       color: var(--text-muted);
+       margin-bottom: 60px;
+       max-width: 500px;
+       margin-left: auto;
+       margin-right: auto;
+   }
+   
+   .feature-grid {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 30px;
+   }
+   
+   .feature-card {
+       background: var(--bg-card-inner);
+       border-radius: var(--radius-lg);
+       border: 1px solid var(--border-subtle);
+       box-shadow: var(--shadow-sm);
+       overflow: hidden;
+       transition: var(--transition);
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .feature-card:hover {
+       transform: translateY(-8px);
+       box-shadow: var(--shadow-md);
+       border-color: var(--border-rich);
+   }
+   
+   .feature-card-img {
+       width: 100%;
+       height: 190px;
+       object-fit: cover;
+       display: block;
+       transition: var(--transition);
+   }
+   
+   .feature-card:hover .feature-card-img {
+       transform: scale(1.04);
+   }
+   
+   .feature-card-body {
+       padding: 30px 24px;
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .feature-icon-wrapper {
+       width: 48px;
+       height: 48px;
+       border-radius: var(--radius-md);
+       background: rgba(37, 99, 235, 0.08);
+       color: var(--azure);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-size: 20px;
+       margin-bottom: 20px;
+   }
+   
+   .feature-card h3 {
+       font-size: 18px;
+       font-weight: 800;
+       color: var(--navy);
+       margin-bottom: 12px;
+   }
+   
+   .feature-card p {
+       font-size: 14px;
+       color: var(--text-muted);
+       line-height: 1.8;
+       flex: 1;
+   }
+   
+   .feature-card-link {
+       display: inline-flex;
+       align-items: center;
+       gap: 6px;
+       color: var(--azure);
+       font-size: 13.5px;
+       font-weight: 700;
+       margin-top: 20px;
+   }
+   
+   .feature-card-link:hover { 
+       color: var(--royal); 
+       gap: 12px; 
+   }
+   
+   /* ==========================================================================
+      بخش مراحل تعاملی (Steps Section)
+      ========================================================================== */
+   .steps-section {
+       background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+       padding: 20px 0;
+   }
+   
+   .steps-section .section-title { color: #fff; }
+   .steps-section .section-subtitle { color: var(--blue-200); }
+   
+   .steps-grid {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 40px;
+       position: relative;
+   }
+   
+   /* خط اتصال هوشمند بین مراحل (راست به چپ برای RTL) */
+   .steps-grid::before {
+       content: '';
+       position: absolute;
+       top: 36px;
+       right: 15%;
+       left: 15%;
+       height: 2px;
+       background: linear-gradient(90deg, rgba(96, 165, 250, 0.4), rgba(37, 99, 235, 0.4));
+       z-index: 0;
+   }
+   
+   .step-item {
+       text-align: center;
+       padding: 0 16px;
+       position: relative;
+       z-index: 1;
+   }
+   
+   .step-circle {
+       width: 76px;
+       height: 76px;
+       border-radius: 50%;
+       background: linear-gradient(135deg, var(--azure) 0%, var(--blue-400) 100%);
+       color: #fff;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-weight: 900;
+       margin: 0 auto 24px;
+       font-size: 26px;
+       box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+       border: 4px solid rgba(255, 255, 255, 0.12);
+       transition: var(--transition);
+   }
+   
+   .step-item:hover .step-circle {
+       transform: scale(1.08) rotate(5deg);
+       box-shadow: 0 12px 28px rgba(37, 99, 235, 0.5);
+   }
+   
+   .step-icon {
+       font-size: 26px;
+       color: var(--blue-200);
+       margin-bottom: 16px;
+       display: block;
+   }
+   
+   .step-item h4 {
+       font-size: 18px;
+       font-weight: 800;
+       color: #fff;
+       margin-bottom: 12px;
+   }
+   
+   .step-item p {
+       font-size: 14px;
+       color: var(--blue-200);
+       line-height: 1.8;
+       opacity: 0.85;
+   }
+   
+   /* ==========================================================================
+      کارت‌های شانس و موقعیت‌ها (Chance Cards)
+      ========================================================================== */
+   .chances-section { 
+       background: var(--sky); 
+   }
+   
+   .chances-wrapper {
+       max-width: 900px;
+       margin: 0 auto;
+       display: flex;
+       flex-direction: column;
+       gap: 18px;
+   }
+   
+   .chance-card {
+       background: var(--bg-card-inner);
+       border-radius: var(--radius-lg);
+       padding: 24px 28px;
+       display: flex;
+       align-items: center;
+       gap: 24px;
+       border: 1px solid var(--border-subtle);
+       box-shadow: var(--shadow-sm);
+       position: relative;
+       overflow: hidden;
+   }
+   
+   /* نوار رنگی سمت راست برای ساختار RTL */
+   .chance-card::before {
+       content: '';
+       position: absolute;
+       right: 0; top: 0; bottom: 0;
+       width: 5px;
+       background: linear-gradient(180deg, var(--azure), var(--blue-400));
+   }
+   
+   .chance-card:hover {
+       transform: translateX(-6px); /* حرکت جزیی به سمت چپ در هاور زبان فارسی */
+       border-color: var(--border-rich);
+       box-shadow: var(--shadow-md);
+   }
+   
+   .company-logo-placeholder {
+       width: 64px;
+       height: 64px;
+       border-radius: var(--radius-md);
+       background: linear-gradient(135deg, var(--haze), var(--sky));
+       border: 1px solid var(--border-subtle);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       color: var(--azure);
+       font-size: 24px;
+       flex-shrink: 0;
+   }
+   
+   .chance-details { 
+       flex: 1; 
+   }
+   
+   .chance-details h3 {
+       font-size: 16.5px;
+       font-weight: 800;
+       color: var(--navy);
+       margin-bottom: 8px;
+   }
+   
+   .match-bar-wrapper {
+       display: flex;
+       align-items: center;
+       gap: 14px;
+   }
+   
+   .match-bar {
+       flex: 1;
+       height: 6px;
+       background: var(--haze);
+       border-radius: 20px;
+       overflow: hidden;
+   }
+   
+   .match-bar-fill {
+       height: 100%;
+       background: linear-gradient(90deg, var(--azure), var(--blue-400));
+       border-radius: 20px;
+       transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+   }
+   
+   .match-percent {
+       font-size: 13.5px;
+       font-weight: 800;
+       color: var(--azure);
+       white-space: nowrap;
+   }
+   
+   .chance-tags {
+       display: flex;
+       gap: 8px;
+       flex-wrap: wrap;
+       margin-top: 12px;
+   }
+   
+   .chance-tag {
+       background: var(--sky);
+       border: 1px solid rgba(37, 99, 235, 0.08);
+       color: var(--deep-blue);
+       padding: 3px 12px;
+       border-radius: 30px;
+       font-size: 12px;
+       font-weight: 600;
+   }
+   
+   .btn-action {
+       background: var(--azure);
+       color: #fff;
+       font-size: 13.5px;
+       font-weight: 700;
+       padding: 10px 22px;
+       border-radius: var(--radius-sm);
+       border: none;
+       cursor: pointer;
+       transition: var(--transition);
+       white-space: nowrap;
+       flex-shrink: 0;
+   }
+   
+   .btn-action:hover {
+       background: var(--royal);
+       transform: translateY(-2px);
+       box-shadow: var(--shadow-accent);
+   }
+   
+   /* ==========================================================================
+      اسلایدر بی‌پایان شرکت‌ها (Companies Section)
+      ========================================================================== */
+   .companies-section { 
+       background: var(--bg-card-inner); 
+   }
+   
+   .slider-outer-container {
+       position: relative;
+       width: 100%;
+       margin-bottom: 54px;
+   }
+   
+   .companies-wrapper {
+       display: flex;
+       flex-wrap: nowrap;
+       gap: 24px;
+       overflow-x: auto;
+       scroll-behavior: smooth;
+       padding: 20px 4px;
+       scrollbar-width: none;
+   }
+   
+   .companies-wrapper::-webkit-scrollbar { 
+       display: none; 
+   }
+   
+   .company-card-item {
+       flex: 0 0 230px;
+       height: 160px;
+       background: var(--bg-card-inner);
+       border: 1px solid var(--border-subtle);
+       border-radius: var(--radius-lg);
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       gap: 12px;
+       box-shadow: var(--shadow-sm);
+       transition: var(--transition);
+       cursor: pointer;
+       padding: 20px;
+   }
+   
+   .company-card-item:hover {
+       border-color: var(--azure);
+       transform: translateY(-6px);
+       box-shadow: var(--shadow-md);
+   }
+   
+   .company-logo-img {
+       width: 56px;
+       height: 56px;
+       object-fit: contain;
+       border-radius: 12px;
+   }
+   
+   .company-card-item h4 {
+       font-size: 14px;
+       font-weight: 800;
+       color: var(--navy);
+       text-align: center;
+   }
+   
+   .company-card-item span {
+       font-size: 12px;
+       color: var(--text-muted);
+       text-align: center;
+       opacity: 0.8;
+   }
+   
+   .slider-nav {
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       width: 44px; height: 44px;
+       border-radius: 50%;
+       background: var(--bg-card-inner);
+       border: 1px solid var(--border-subtle);
+       color: var(--deep-blue);
+       cursor: pointer;
+       z-index: 10;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       box-shadow: var(--shadow-sm);
+   }
+   
+   .slider-nav:hover {
+       background: var(--azure);
+       color: #fff;
+       border-color: var(--azure);
+   }
+   
+   /* تنظیم جهت ناوبری دکمه‌ها متناسب با ساختار هندسی راست‌به‌چپ */
+   .next-btn { right: -22px; }
+   .prev-btn { left: -22px; }
+   
+   /* بنر مدرن دعوت به ثبت شرکت */
+   .add-company-banner {
+       background: linear-gradient(135deg, rgba(219,234,254,0.6) 0%, rgba(239,246,255,0.8) 100%);
+       border: 1px solid var(--border-rich);
+       backdrop-filter: blur(8px);
+       padding: 28px 36px;
+       border-radius: var(--radius-lg);
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       gap: 24px;
+   }
+   
+   .add-company-banner span {
+       font-size: 15px;
+       color: var(--deep-blue);
+       font-weight: 700;
+       line-height: 1.7;
+   }
+   
+   .btn-outline-dark {
+       background: var(--bg-card-inner);
+       border: 2px solid var(--azure);
+       color: var(--azure);
+       font-size: 14px;
+       font-weight: 700;
+       white-space: nowrap;
+       padding: 12px 24px;
+       border-radius: var(--radius-md);
+       cursor: pointer;
+   }
+   
+   .btn-outline-dark:hover {
+       background: var(--azure);
+       color: #fff;
+       box-shadow: var(--shadow-accent);
+   }
+
+
+   html {
+    scroll-behavior: smooth;
+}
+   
+   /* ==========================================================================
+      ریسپانسیو کاملاً سازگار (Responsive Adjustments)
+      ========================================================================== */
+   @media (max-width: 1024px) {
+       .feature-grid,
+       .steps-grid { 
+           grid-template-columns: repeat(2, 1fr); 
+           gap: 24px;
+       }
+       .hero-title { font-size: 38px; }
+   }
+   
+   @media (max-width: 768px) {
+       .steps-grid::before { display: none; }
+       .add-company-banner { 
+           flex-direction: column; 
+           text-align: center; 
+           padding: 24px;
+       }
+   }
+   
+   @media (max-width: 650px) {
+       .hero-title { font-size: 30px; }
+       .hero-subtitle { font-size: 15.5px; }
+       .hero-cta-group { flex-direction: column; width: 100%; }
+       .btn-primary-glow { width: 100%; }
+       
+       .feature-grid,
+       .steps-grid { grid-template-columns: 1fr; }
+       
+       .chance-card { 
+           flex-direction: column; 
+           text-align: center; 
+           padding: 20px;
+       }
+       .chance-card::before { 
+           width: 100%; height: 5px; 
+           top: 0; right: 0; bottom: auto; 
+       }
+       .chance-tags { justify-content: center; }
+       .match-bar-wrapper { width: 100%; }
+       .btn-action { width: 100%; margin-top: 10px; }
+   
+       .slider-nav { display: none; }
+       .section-container { padding: 60px 1.5rem; }
+   }

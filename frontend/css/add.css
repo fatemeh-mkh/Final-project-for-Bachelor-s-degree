@@ -1,0 +1,701 @@
+/* ==========================================================================
+   ۰. وارد کردن فونت استاندارد و مدرن وب (Vazirmatn)
+   ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
+
+   /* ==========================================================================
+      ۱. تنظیمات پایه، متغیرها و تایپوگرافی (پالت مدرن Cosmos Blue)
+      ========================================================================== */
+   :root {
+       /* رنگ‌های اصلی بر اساس پالت جدید پیوست شده */
+       --clr-primary-blue: #2563EB;     /* آبی کاربنی شرکتی و سیگنال اعتماد */
+       --clr-accent-orange: #F59E0B;    /* خردلی/نارنجی زنده پالت برای CTA و عناصر متمایز */
+       --clr-deep-navy: #0F172A;        /* سرمه‌ای فوق‌العاده عمیق برای هدرها، متون و ساختار اصلی */
+       --clr-sky-light: #EFF6FF;        /* لایت‌مد ملایم (آبی آسمانی بسیار روشن) برای لایه‌های پس‌زمینه */
+       
+       /* متون و خوانایی */
+       --text-main: #1E293B;            /* سرمه‌ای تیره برای متن‌های اصلی */
+       --text-muted: #64748B;           /* خاکستری فولادی برای متون فرعی و راهنما */
+       
+       /* لایه‌بندی پس‌زمینه فرم مدرن */
+       --bg-page: #F8FAFC;              
+       --bg-card: #FFFFFF;              
+       --bg-card-inner: #F1F5F9;        
+       
+       --border-subtle: rgba(37, 99, 235, 0.08);
+       --border-rich: #CBD5E1;          
+       
+       --bg-gradient: linear-gradient(180deg, #EFF6FF 0%, #F8FAFC 100%);
+     
+       /* انحناها و سایه‌های نرم ارگانیک دنیای مدرن وب */
+       --radius-lg: 20px;
+       --radius-premium: 12px;
+       --radius-md: 8px;
+       
+       --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+       --shadow-md: 0 16px 32px rgba(15, 23, 42, 0.06); 
+       --shadow-accent: 0 8px 20px rgba(245, 158, 11, 0.2); 
+       
+       --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+     
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       font-family: "Vazirmatn", system-ui, sans-serif;
+   }
+     
+   body {
+       background: var(--bg-gradient);
+       color: var(--text-main);
+       min-height: 100vh;
+       direction: rtl;
+       line-height: 1.8; 
+       -webkit-font-smoothing: antialiased;
+       padding-top: 64px; /* فضای لازم جهت فیکس شدن هدر بالای صفحه */
+   }
+     
+   a {
+       text-decoration: none;
+       color: inherit;
+       transition: var(--transition);
+   }
+   
+   input, select, textarea, button {
+       font-family: "Vazirmatn", system-ui, sans-serif !important;
+   }
+     
+   /* ==========================================================================
+      ۲. هدر فیکس شده پلتفرم (منطبق با تم سرمه‌ای عمیق)
+      ========================================================================== */
+   .main-header {
+       position: fixed;
+       top: 0; right: 0; left: 0;
+       height: 64px; 
+       background: var(--clr-deep-navy); 
+       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+       z-index: 1000;
+       display: flex;
+       align-items: center;
+   }
+     
+   .header-container {
+       width: 100%;
+       max-width: 1240px;
+       margin: 0 auto;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 0 2rem;
+   }
+     
+   .logo-text {
+       font-size: 22px;
+       font-weight: 850;
+       color: #ffffff;
+       letter-spacing: -0.5px;
+   }
+   .logo-text span { 
+       color: var(--clr-accent-orange); 
+   }
+     
+   .nav-menu ul {
+       display: flex;
+       list-style: none;
+       gap: 2.25rem;
+       align-items: center;
+   }
+     
+   .nav-menu a {
+       font-size: 14px;
+       font-weight: 500;
+       color: #94A3B8; 
+       padding: 6px 0;
+       position: relative;
+   }
+     
+   .nav-menu a:hover, 
+   .nav-menu a.active {
+       color: #ffffff;
+       font-weight: 700;
+   }
+     
+   .nav-menu a::after {
+       content: '';
+       position: absolute;
+       bottom: -2px; right: 0;
+       width: 0; height: 2px;
+       background-color: var(--clr-primary-blue);
+       transition: var(--transition);
+   }
+   .nav-menu a:hover::after,
+   .nav-menu a.active::after {
+       width: 100%;
+   }
+     
+   .header-actions {
+       display: flex;
+       align-items: center;
+       gap: 1rem;
+   }
+     
+   .search-bar {
+       position: relative;
+       display: inline-flex;
+       align-items: center;
+   }
+     
+   .search-bar input {
+       padding: 10px 14px 10px 38px;
+       border-radius: var(--radius-md);
+       border: 1px solid rgba(255, 255, 255, 0.1);
+       background-color: #1E293B; 
+       color: #ffffff;
+       outline: none;
+       width: 190px;
+       font-size: 13px;
+       transition: var(--transition);
+   }
+     
+   .search-bar input:focus {
+       width: 240px;
+       background-color: #0F172A;
+       border-color: var(--clr-primary-blue);
+       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+   }
+     
+   .search-bar i {
+       position: absolute;
+       left: 12px;
+       color: var(--text-muted);
+       font-size: 14px;
+       pointer-events: none;
+   }
+     
+   .close-icon {
+       font-size: 16px;
+       cursor: pointer;
+       color: #94A3B8;
+       width: 34px; height: 34px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       border-radius: 50%;
+       background: #1E293B;
+       transition: var(--transition);
+   }
+     
+   .close-icon:hover {
+       background: #FEF2F2;
+       color: #EF4444;
+       transform: rotate(90deg);
+   }
+     
+   /* ==========================================================================
+      ۳. بنر تصویری بالای صفحه (پترن انتزاعی و تکنولوژی مدرن)
+      ========================================================================== */
+
+/* ==========================================================================
+   ۳. بنر تصویری بالای صفحه (پترن انتزاعی روشن و تک Cosmos Blue)
+   ========================================================================== */
+   .premium-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 280px; 
+    padding: 0;
+    /* یک تصویر ۳بعدی، فوق‌العاده باکیفیت و روشن متناسب با فضای انتقال تجربه و تکنولوژی */
+    background-image: url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1920&auto=format&fit=crop');
+    background-color: #0F172A; 
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 0 !important; /* اصرار بر چسبیدن به سقف */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* گرادیانت اصلاح شده: در مرکز شفاف‌تر شده تا جزئیات عکس کاملاً مشخص و روشن بماند */
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.85) 0%, rgba(37, 99, 235, 0.2) 50%, rgba(15, 23, 42, 0.85) 100%),
+                linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.7) 100%);
+    z-index: 1;
+}
+     
+   .hero-content {
+       position: relative;
+       z-index: 2;
+       width: 100%;
+       max-width: 1240px;
+       padding: 0 2rem;
+       text-align: right;
+   }
+     
+   .hero-badge {
+       display: inline-flex;
+       align-items: center;
+       gap: 6px;
+       background: rgba(37, 99, 235, 0.2);
+       border: 1px solid rgba(37, 99, 235, 0.4);
+       backdrop-filter: blur(8px);
+       -webkit-backdrop-filter: blur(8px);
+       color: #93C5FD;
+       padding: 6px 14px;
+       border-radius: 20px;
+       font-size: 12px;
+       font-weight: 700;
+       margin-bottom: 12px;
+   }
+     
+   .hero-content h1 {
+       font-size: 28px;
+       font-weight: 800;
+       color: #ffffff;
+       margin-bottom: 6px;
+   }
+     
+   .hero-content p {
+       font-size: 14.5px;
+       font-weight: 400;
+       color: #94A3B8;
+   }
+     
+   /* ==========================================================================
+      ۴. بدنه اصلی فرم و کارت‌های شیشه‌ای لایت‌مد
+      ========================================================================== */
+   .container.form-page {
+       max-width: 860px;
+       margin: 0 auto;
+       padding: 40px 20px 60px;
+   }
+     
+   .glass-card {
+       background: var(--bg-card);
+       border: 1px solid rgba(226, 232, 240, 0.8);
+       box-shadow: var(--shadow-md);
+       border-radius: var(--radius-lg);
+   }
+     
+   .form-card {
+       padding: 32px;
+   }
+     
+   .form-layout {
+       display: flex;
+       flex-direction: column;
+       gap: 20px;
+   }
+     
+   .form-group {
+       display: flex;
+       flex-direction: column;
+       gap: 8px;
+   }
+     
+   .form-group label {
+       font-size: 13.5px;
+       font-weight: 700;
+       color: var(--text-main);
+   }
+     
+   .form-group input[type="text"],
+   .form-group input[type="date"],
+   .form-group textarea {
+       width: 100%;
+       border: 1px solid var(--border-rich);
+       background: #FFFFFF;
+       padding: 12px 14px;
+       border-radius: var(--radius-premium);
+       font-size: 14px;
+       color: var(--text-main);
+       outline: none;
+       transition: var(--transition);
+   }
+     
+   .form-group input:focus,
+   .form-group textarea:focus {
+       border-color: var(--clr-primary-blue);
+       box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+   }
+     
+   .form-row {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 16px;
+   }
+     
+   /* ==========================================================================
+      ۵. اسلایدر تعاملی شرکت‌ها
+      ========================================================================== */
+   .company-slider {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       background: var(--bg-card-inner);
+       padding: 10px 16px;
+       border-radius: var(--radius-premium);
+       border: 1px solid #E2E8F0;
+   }
+     
+   .company-display {
+       flex: 1;
+       text-align: center;
+       font-weight: 700;
+       color: var(--text-main);
+       font-size: 15px;
+   }
+     
+   .slide-btn {
+       background: var(--clr-primary-blue);
+       color: white;
+       border: none;
+       width: 36px; height: 36px;
+       border-radius: 50%;
+       font-size: 16px;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       transition: var(--transition);
+   }
+     
+   .slide-btn:hover {
+       background: var(--clr-deep-navy);
+       transform: translateY(-1px);
+   }
+     
+   /* ==========================================================================
+      ۶. کنترلرها و گرید بخش امتیازدهی (Rating Section)
+      ========================================================================== */
+   .rating-section {
+       border-top: 1px solid #E2E8F0;
+       padding-top: 24px;
+       margin-top: 10px;
+   }
+     
+   .rating-section-title {
+       font-size: 16px;
+       font-weight: 800;
+       color: var(--text-main);
+   }
+     
+   .rating-section-subtitle {
+       font-size: 12.5px;
+       font-weight: 400;
+       color: var(--text-muted);
+       margin-bottom: 16px;
+   }
+     
+   .rating-grid {
+       display: grid;
+       grid-template-columns: 1fr 220px;
+       gap: 20px;
+   }
+     
+   .internal-card {
+       background: #F8FAFC;
+       border: 1px solid #E2E8F0;
+       border-radius: var(--radius-premium);
+       padding: 20px;
+   }
+     
+   .rating-item {
+       display: flex;
+       flex-direction: column;
+       margin-bottom: 14px;
+   }
+     
+   .rating-item:last-child {
+       margin-bottom: 0;
+   }
+     
+   .rating-item label {
+       font-size: 13px;
+       font-weight: 600;
+       color: var(--text-main);
+       margin-bottom: 6px;
+   }
+     
+   .rate-input {
+       -webkit-appearance: none;
+       appearance: none;
+       width: 100%;
+       height: 6px;
+       border-radius: 3px;
+       background: #E2E8F0;
+       outline: none;
+       cursor: pointer;
+   }
+   
+   .rate-input::-webkit-slider-thumb {
+       -webkit-appearance: none;
+       appearance: none;
+       width: 18px; height: 18px;
+       border-radius: 50%;
+       background: var(--clr-primary-blue);
+       border: 2px solid #ffffff;
+       box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+       transition: var(--transition);
+   }
+   
+   .rate-input::-webkit-slider-thumb:hover {
+       transform: scale(1.2);
+       background: var(--clr-deep-navy);
+   }
+     
+   .rating-right {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       text-align: center;
+       background: var(--clr-sky-light);
+       border: 1px solid rgba(37, 99, 235, 0.12);
+       border-radius: var(--radius-premium);
+   }
+     
+   .rating-right h3 {
+       font-size: 13.5px;
+       font-weight: 700;
+       color: var(--clr-primary-blue);
+       margin-bottom: 12px;
+   }
+     
+   .badge-wrapper {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 6px;
+   }
+     
+   .rating-badge {
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       width: 60px; height: 60px;
+       border-radius: var(--radius-premium);
+       background: linear-gradient(135deg, var(--clr-accent-orange), #D97706);
+       color: #fff;
+       font-weight: 800;
+       font-size: 18px;
+       box-shadow: var(--shadow-accent);
+   }
+   
+   #finalRatingText {
+       font-size: 13px;
+       font-weight: 700;
+       color: var(--text-main);
+   }
+     
+   .form-action {
+       margin-top: 10px;
+       display: flex;
+       justify-content: flex-end;
+   }
+     
+   .btn-submit-premium {
+       border: none;
+       border-radius: var(--radius-premium);
+       padding: 12px 32px;
+       font-size: 14px;
+       font-weight: 700;
+       cursor: pointer;
+       background: var(--clr-accent-orange); 
+       color: #ffffff;
+       box-shadow: var(--shadow-accent);
+       transition: var(--transition);
+   }
+     
+   .btn-submit-premium:hover {
+       background: #D97706; 
+       transform: translateY(-1px);
+       box-shadow: 0 12px 24px rgba(245, 158, 11, 0.35);
+   }
+     
+   /* ==========================================================================
+      ۷. فوتر پلتفرم (بازسازی کامل، ۱۰۰٪ فیکس شده و منظم)
+      ========================================================================== */
+   .main-footer {
+       background: #0F172A !important; /* سرمه‌ای تیره لوکس پالت کاملاً یکدست */
+       color: #94A3B8 !important;
+       padding: 60px 0 0 0 !important;
+       margin-top: 80px !important;
+       border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+       width: 100% !important;
+       direction: rtl !important;
+       position: relative;
+       z-index: 10;
+       clear: both;
+   }
+     
+   .footer-container {
+       max-width: 1240px !important;
+       margin: 0 auto !important;
+       display: grid !important;
+       grid-template-columns: 1.6fr repeat(3, 1fr) !important;
+       gap: 40px !important;
+       padding: 0 2rem 40px 2rem !important;
+   }
+     
+   .footer-column h3 {
+       font-size: 15px !important;
+       color: #ffffff !important;
+       margin-bottom: 20px !important;
+       font-weight: 800 !important;
+   }
+     
+   .footer-column ul {
+       list-style: none !important;
+       display: flex !important;
+       flex-direction: column !important;
+       gap: 12px !important;
+       padding: 0 !important;
+       margin: 0 !important;
+   }
+     
+   .footer-column a {
+       font-size: 13.5px !important;
+       color: #94A3B8 !important;
+       font-weight: 400;
+       display: inline-block;
+   }
+     
+   .footer-column a:hover {
+       color: #ffffff !important; 
+       transform: translateX(-4px) !important;
+   }
+     
+   .brand-column .brand-logo {
+       color: #ffffff !important;
+       font-size: 24px !important;
+       font-weight: 850;
+       margin-bottom: 14px;
+   }
+     
+   .brand-desc {
+       font-size: 13px !important;
+       font-weight: 400;
+       color: #64748B !important;
+       line-height: 1.8 !important;
+       max-width: 300px;
+   }
+     
+   .footer-bottom {
+       width: 100% !important;
+       background-color: #020617 !important; /* لایه تیره نهایی انتهای فوتر */
+       border-top: 1px solid rgba(255, 255, 255, 0.04) !important;
+       padding: 20px 0 !important;
+   }
+     
+   .footer-bottom-container {
+       max-width: 1240px !important;
+       margin: 0 auto !important;
+       padding: 0 2rem !important;
+       display: flex !important;
+       justify-content: space-between !important;
+       align-items: center !important;
+   }
+     
+   .copyright-text {
+       font-size: 12px !important;
+       color: #64748B !important;
+       font-weight: 500;
+       margin: 0 !important;
+   }
+     
+   .language-selector {
+       display: inline-flex !important;
+       align-items: center !important;
+       gap: 8px !important;
+       background: #1E293B !important; 
+       border: 1px solid rgba(255, 255, 255, 0.08) !important;
+       padding: 6px 14px !important;
+       border-radius: 20px !important;
+       color: #94A3B8 !important;
+       direction: ltr !important;
+   }
+     
+   .language-selector:hover {
+       border-color: var(--clr-primary-blue) !important;
+       color: #ffffff !important;
+   }
+     
+   .language-selector select {
+       background: transparent !important;
+       color: inherit !important;
+       border: none !important;
+       padding: 0 4px !important;
+       outline: none !important;
+       font-size: 12px !important;
+       font-weight: 700 !important;
+       cursor: pointer !important;
+   }
+     
+   /* ==========================================================================
+      ۸. بهینه‌سازی رسپانسیو و موبایل
+      ========================================================================== */
+   @media (max-width: 992px) {
+       .footer-container { 
+           grid-template-columns: 1fr 1fr !important; 
+           gap: 30px !important; 
+       }
+   }
+     
+   @media (max-width: 768px) {
+       body {
+           padding-top: 0;
+       }
+       .header-container { 
+           padding: 0 1rem;
+           flex-direction: column;
+           gap: 12px;
+           text-align: center;
+       }
+       .main-header {
+           position: relative; 
+           height: auto;
+           padding: 12px 0;
+       }
+       .premium-hero-banner {
+           height: 180px;
+       }
+       .hero-content {
+           text-align: center;
+       }
+       .hero-content h1 {
+           font-size: 22px;
+       }
+       .nav-menu ul {
+           flex-wrap: wrap;
+           justify-content: center;
+           gap: 1rem;
+       }
+       .search-bar input { 
+           width: 140px; 
+       }
+       .search-bar input:focus { 
+           width: 170px; 
+       }
+       .form-row, 
+       .rating-grid {
+           grid-template-columns: 1fr;
+       }
+       .form-card {
+           padding: 20px;
+       }
+   }
+     
+   @media (max-width: 576px) {
+       .footer-container { 
+           grid-template-columns: 1fr !important; 
+           text-align: center !important;
+       }
+       .footer-bottom-container { 
+           flex-direction: column-reverse !important; 
+           gap: 12px !important; 
+       }
+   }

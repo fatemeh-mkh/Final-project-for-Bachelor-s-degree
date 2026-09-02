@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل شرکت‌ها | اینترنو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/auth.css">
+
+    <style>
+        /* override عرض کارت برای فرم ثبت‌نام که فیلدهای بیشتری داره */
+        .container { width: 480px; }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="auth-wrapper">
+        <div class="container">
+
+            <!-- لوگو -->
+            <div class="auth-logo">
+                <a href="index.html">inter<span>no</span></a>
+            </div>
+
+            <div class="form-container">
+
+                <!-- فرم ورود شرکت -->
+                <div class="form-box login-box" id="compLoginBox">
+                    <form id="companyLoginForm" novalidate>
+                        <h1>ورود شرکت</h1>
+                        <p>وارد پنل مدیریتی شرکت خود شوید</p>
+
+                        <div class="input-group">
+                            <input type="email" id="compLoginEmail" placeholder="ایمیل سازمانی" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" id="compLoginPassword" placeholder="رمز عبور" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+
+                        <button type="submit" class="btn-glow" id="compLoginBtn">ورود به پنل شرکت</button>
+
+                        <span class="switch-text">
+                            شرکت شما ثبت نشده؟ <b id="toCompSignUp">ثبت‌نام شرکت</b>
+                        </span>
+
+                        <hr>
+
+                        <span class="switch-text">
+                            <a href="auth.html">بازگشت به ورود دانشجو</a>
+                        </span>
+                    </form>
+                </div>
+
+                <!-- فرم ثبت‌نام شرکت -->
+                <div class="form-box signup-box" id="compSignupBox" style="display: none;">
+                    <form id="registerCompanyForm" novalidate>
+                        <h1>ثبت‌نام شرکت جدید</h1>
+                        <p>اطلاعات شرکت خود را وارد کنید</p>
+
+                        <div class="input-group">
+                            <input type="text" id="compName" placeholder="نام شرکت" required>
+                            <i class="fas fa-building"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" id="compEmail" placeholder="ایمیل سازمانی" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" id="compPassword" placeholder="رمز عبور" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="compIndustry" placeholder="حوزه فعالیت" required>
+                            <i class="fas fa-industry"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="compLocation" placeholder="شهر" required>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="url" id="compWebsite" placeholder="وب‌سایت شرکت" required>
+                            <i class="fas fa-globe"></i>
+                        </div>
+
+                        <button type="submit" class="btn-glow success" id="compRegisterBtn">ارسال درخواست ثبت‌نام</button>
+
+                        <span class="switch-text">
+                            حساب شرکت دارید؟ <b id="toCompLogin">وارد شوید</b>
+                        </span>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/layout-loader.js"></script>
+    <script src="/js/register-company.js"></script>
+</body>
+</html>

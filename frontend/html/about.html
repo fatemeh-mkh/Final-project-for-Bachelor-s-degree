@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما | اینترنو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/main_header.css">
+    <link rel="stylesheet" href="/css/about.css">
+    <style>
+        /* این تکه کد تداخل استایل عمومی body با پالت Cosmosِ کامپوننت فوتر را از بین می‌برد 
+           تا فوتر بتواند رنگ تیره فابریک خودش را بدون هیچ کد اضافه‌ای از فایل کامپوننت بخواند.
+        */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <div class="container">
+        <section class="about-hero">
+            <h1>پلتفرم هوشمند <span>اینترنو</span> چیست؟</h1>
+            <p>گامی نو برای توانمندسازی مسیر شغلی و تحصیلی استعدادهای مهندسی کشور</p>
+        </section>
+
+        <section class="glass-card creator-section">
+            <div class="creator-avatar">
+                <i class="fas fa-user-astronaut"></i>
+            </div>
+            <div class="creator-info">
+                <h2>فاطمه مختاری</h2>
+                <h3>توسعه‌دهنده و طراح ارشد سیستم اینترنو</h3>
+                <p>من این پلتفرم را بر مبنای نیازی واقعی که در فضای آموزش عالی و بازار کار تکنولوژی کشور احساس می‌شد طراحی کردم. هدف اصلی من از توسعه این سامانه، ایجاد بستر پویا، تعاملی و مشارکت‌جمعی برای دانشجویان است تا بتوانند تجربیات کارآموزی خود را به صورت چندبُعدی ثبت کرده و به سایر هم‌دانشگاهی‌های خود در تصمیم‌گیری هوشمندانه کمک کنند.</p>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <h2 style="text-align: center; margin-bottom: 15px;">ارزش‌های متمایزکننده پلتفرم</h2>
+            <p style="text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px;">برخلاف نمونه‌های خارجی نظیر Glassdoor یا Handshake که با بازار غرب همخوانی دارند، اینترنو کاملاً بومی‌سازی شده است.</p>
+            
+            <div class="grid-3">
+                <div class="feature-box">
+                    <i class="fas fa-brain"></i>
+                    <h4>پیشنهادگر مبتنی بر شخصیت</h4>
+                    <p>بهره‌گیری از تست‌های روان‌شناختی معتبر مانند MBTI یا DISC برای تطابق تیپ شخصیتی کاربر با موقعیت‌های کارآموزی متناسب.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-star-half-alt"></i>
+                    <h4>ارزیابی چندبُعدی شرکت‌ها</h4>
+                    <p>امکان امتیازدهی دقیق بر اساس معیارهای حیاتی مانند کیفیت آموزش، حقوق، محیط فرهنگی و ساعات کاری سیستم.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>تمركز ویژه بر کارآموزی</h4>
+                    <p>تمرکز انحصاری بر دوره کارآموزی و رشد تدریجی مهارت‌ها، نه استخدام دائم؛ جهت ورود ایمن و موفق به بازار کار واقعی.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <h3 style="margin-bottom: 20px; text-align: center; color: var(--text-dark);">معماری و ساختار توسعه پلتفرم</h3>
+            <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px;">این پلتفرم مطابق با چرخه‌های مدرن مهندسی نرم‌افزار، تحلیل نیازمندی‌ها (ERD) و توسعه ماژولار طراحی شده است.</p>
+            
+            <div class="tech-stack-wrapper">
+                <div class="tech-item"><i class="fab fa-java"></i> Java & Spring Boot</div>
+                <div class="tech-item"><i class="fas fa-database"></i> PostgreSQL</div>
+                <div class="tech-item"><i class="fab fa-js-square"></i> JavaScript (ES6+)</div>
+                <div class="tech-item"><i class="fas fa-project-diagram"></i> RESTful API</div>
+                <div class="tech-item"><i class="fab fa-figma"></i> UI/UX Figma Design</div>
+            </div>
+        </section>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/layout-loader.js"></script> 
+</body>
+</html>

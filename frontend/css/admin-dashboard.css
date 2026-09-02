@@ -1,0 +1,569 @@
+/* ==========================================================================
+   admin-dashboard.css — پالت Cosmos Blue | اینترنو
+   ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap');
+
+   /* ==========================================================================
+      ۱. متغیرها
+      ========================================================================== */
+   :root {
+       --azure:        #2563EB;
+       --royal:        #1D4ED8;
+       --gold:         #F59E0B;
+       --gold-dark:    #B45309;
+       --navy:         #0F172A;
+       --deep-blue:    #1E3A5F;
+       --sky:          #EFF6FF;
+       --haze:         #DBEAFE;
+       --blue-200:     #BFDBFE;
+       --blue-400:     #60A5FA;
+   
+       --bg-page:       #EFF6FF;
+       --bg-card:       #ffffff;
+       --border-subtle: rgba(37, 99, 235, 0.13);
+       --border-rich:   rgba(37, 99, 235, 0.35);
+       --text-main:     #0F172A;
+       --text-muted:    #1E3A5F;
+   
+       --radius-lg:  16px;
+       --radius-md:  10px;
+       --radius-sm:  7px;
+   
+       --shadow-sm:     0 2px 8px  rgba(37, 99, 235, 0.05);
+       --shadow-md:     0 12px 32px rgba(37, 99, 235, 0.09);
+       --shadow-accent: 0 6px 18px rgba(37, 99, 235, 0.25);
+   
+       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+   
+       /* وضعیت‌ها */
+       --status-pending-bg:   rgba(245, 158, 11, 0.1);
+       --status-pending-text: #92400E;
+       --status-approved-bg:  rgba(22, 163, 74, 0.1);
+       --status-approved-text:#15803D;
+       --status-rejected-bg:  rgba(220, 38, 38, 0.1);
+       --status-rejected-text:#DC2626;
+       --status-suspended-bg: rgba(37, 99, 235, 0.1);
+       --status-suspended-text:var(--deep-blue);
+   }
+   
+   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+   
+   body {
+       font-family: "Vazirmatn", system-ui, sans-serif;
+       background-color: var(--bg-page);
+       color: var(--text-main);
+       direction: rtl;
+       line-height: 1.8;
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   a { text-decoration: none; color: inherit; transition: var(--transition); }
+   
+   /* ==========================================================================
+      ۲. چیدمان اصلی
+      ========================================================================== */
+   .main-content {
+       display: flex;
+       min-height: calc(100vh - 68px);
+       gap: 0;
+   }
+   
+   /* ==========================================================================
+      ۳. سایدبار
+      ========================================================================== */
+   .sidebar {
+       width: 230px;
+       flex-shrink: 0;
+       background: var(--bg-card);
+       border-left: 1px solid var(--border-subtle);
+       padding: 32px 16px;
+       position: sticky;
+       top: 68px;
+       height: calc(100vh - 68px);
+       overflow-y: auto;
+       box-shadow: var(--shadow-sm);
+   }
+   
+   .sidebar h3 {
+       font-size: 11.5px;
+       font-weight: 800;
+       color: var(--blue-200);
+       text-transform: uppercase;
+       letter-spacing: 1.2px;
+       margin-bottom: 16px;
+       padding-bottom: 12px;
+       border-bottom: 1px solid var(--border-subtle);
+   }
+   
+   .sidebar ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+   
+   .sidebar a {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       padding: 10px 14px;
+       border-radius: var(--radius-md);
+       font-size: 13.5px;
+       font-weight: 600;
+       color: var(--text-muted);
+       transition: var(--transition);
+   }
+   
+   .sidebar a:hover {
+       background: var(--haze);
+       color: var(--azure);
+   }
+   
+   .sidebar a.active {
+       background: rgba(37, 99, 235, 0.1);
+       color: var(--azure);
+       font-weight: 700;
+   }
+   
+   /* ==========================================================================
+      ۴. ناحیه محتوا
+      ========================================================================== */
+   .content-area {
+       flex: 1;
+       padding: 36px 40px;
+       overflow-x: hidden;
+   }
+   
+   .content-area h1 {
+       font-size: 22px;
+       font-weight: 900;
+       color: var(--navy);
+       letter-spacing: -0.5px;
+       margin-bottom: 28px;
+       display: flex;
+       align-items: center;
+       gap: 10px;
+   }
+   
+   .content-area h1::before {
+       content: '';
+       width: 4px;
+       height: 24px;
+       background: linear-gradient(180deg, var(--azure), var(--blue-400));
+       border-radius: 4px;
+       display: inline-block;
+   }
+   
+   /* ==========================================================================
+      ۵. فیلترها
+      ========================================================================== */
+   .filters-and-actions {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-bottom: 24px;
+       flex-wrap: wrap;
+       gap: 12px;
+       background: var(--bg-card);
+       border: 1px solid var(--border-subtle);
+       border-radius: var(--radius-lg);
+       padding: 18px 24px;
+       box-shadow: var(--shadow-sm);
+   }
+   
+   .filters {
+       display: flex;
+       align-items: center;
+       gap: 12px;
+       flex-wrap: wrap;
+   }
+   
+   .filters label {
+       font-size: 12.5px;
+       font-weight: 700;
+       color: var(--text-muted);
+       white-space: nowrap;
+   }
+   
+   .filters select,
+   .filters input {
+       padding: 9px 13px;
+       border: 1.5px solid var(--border-subtle);
+       border-radius: var(--radius-md);
+       background: var(--sky);
+       color: var(--text-main);
+       font-family: inherit;
+       font-size: 13px;
+       transition: var(--transition);
+       outline: none;
+   }
+   
+   .filters select:focus,
+   .filters input:focus {
+       border-color: var(--azure);
+       background: #fff;
+       box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+   }
+   
+   .filters input::placeholder { color: var(--text-muted); opacity: 0.5; }
+   
+   /* ==========================================================================
+      ۶. جدول
+      ========================================================================== */
+   .table-wrapper {
+       background: var(--bg-card);
+       border-radius: var(--radius-lg);
+       border: 1px solid var(--border-subtle);
+       box-shadow: var(--shadow-md);
+       overflow: hidden;
+       overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
+   }
+   
+   .table-wrapper::-webkit-scrollbar { height: 6px; }
+   .table-wrapper::-webkit-scrollbar-track { background: var(--haze); }
+   .table-wrapper::-webkit-scrollbar-thumb {
+       background: var(--blue-200);
+       border-radius: 10px;
+   }
+   .table-wrapper::-webkit-scrollbar-thumb:hover { background: var(--azure); }
+   .table-wrapper { scrollbar-width: thin; scrollbar-color: var(--blue-200) var(--haze); }
+   
+   #companies-table {
+       width: 100%;
+       min-width: 820px;
+       border-collapse: collapse;
+   }
+   
+   /* هدر جدول */
+   #companies-table thead {
+       position: sticky;
+       top: 0;
+       z-index: 10;
+   }
+   
+   #companies-table th {
+       background: var(--haze);
+       color: var(--deep-blue);
+       font-size: 12px;
+       font-weight: 800;
+       letter-spacing: 0.3px;
+       padding: 14px 18px;
+       border-bottom: 2px solid var(--border-rich);
+       text-align: right;
+       white-space: nowrap;
+   }
+   
+   #companies-table td {
+       padding: 14px 18px;
+       border-bottom: 1px solid rgba(37, 99, 235, 0.07);
+       color: var(--text-main);
+       font-size: 13.5px;
+       vertical-align: middle;
+       text-align: right;
+   }
+   
+   #companies-table tbody tr:nth-child(even) td {
+       background: rgba(239, 246, 255, 0.5);
+   }
+   
+   #companies-table tbody tr:hover td {
+       background: rgba(219, 234, 254, 0.55);
+       transition: background 0.15s ease;
+   }
+   
+   #companies-table tbody tr:last-child td { border-bottom: none; }
+   
+   /* ==========================================================================
+      ۷. بج وضعیت
+      ========================================================================== */
+   .status {
+       display: inline-flex;
+       align-items: center;
+       gap: 5px;
+       font-size: 11.5px;
+       font-weight: 700;
+       padding: 4px 12px;
+       border-radius: 20px;
+       white-space: nowrap;
+   }
+   
+   .status::before {
+       content: '';
+       width: 6px;
+       height: 6px;
+       border-radius: 50%;
+       display: inline-block;
+       flex-shrink: 0;
+   }
+   
+   .status.pending {
+       background: var(--status-pending-bg);
+       color: var(--status-pending-text);
+   }
+   .status.pending::before { background: #F59E0B; }
+   
+   .status.approved {
+       background: var(--status-approved-bg);
+       color: var(--status-approved-text);
+   }
+   .status.approved::before { background: #16A34A; }
+   
+   .status.rejected {
+       background: var(--status-rejected-bg);
+       color: var(--status-rejected-text);
+   }
+   .status.rejected::before { background: #DC2626; }
+   
+   .status.suspended {
+       background: var(--status-suspended-bg);
+       color: var(--status-suspended-text);
+   }
+   .status.suspended::before { background: var(--azure); }
+   
+   /* ==========================================================================
+      ۸. دکمه‌های عملیات جدول
+      ========================================================================== */
+   .actions {
+       display: flex;
+       flex-direction: column;
+       gap: 6px;
+       min-width: 120px;
+   }
+   
+   .actions button {
+       padding: 6px 12px;
+       border-radius: var(--radius-sm);
+       font-size: 12px;
+       font-weight: 700;
+       font-family: inherit;
+       cursor: pointer;
+       transition: var(--transition);
+       border: 1px solid transparent;
+       width: 100%;
+       text-align: center;
+   }
+   
+   .actions button.btn-approve {
+       background: rgba(22, 163, 74, 0.08);
+       color: #15803D;
+       border-color: rgba(22, 163, 74, 0.2);
+   }
+   .actions button.btn-approve:hover {
+       background: #16A34A;
+       color: #fff;
+       border-color: #16A34A;
+       transform: translateY(-1px);
+   }
+   
+   .actions button.btn-delete {
+       background: rgba(220, 38, 38, 0.07);
+       color: #DC2626;
+       border-color: rgba(220, 38, 38, 0.18);
+   }
+   .actions button.btn-delete:hover {
+       background: #DC2626;
+       color: #fff;
+       border-color: #DC2626;
+       transform: translateY(-1px);
+   }
+   
+   .actions button.btn-status {
+       background: rgba(37, 99, 235, 0.07);
+       color: var(--azure);
+       border-color: rgba(37, 99, 235, 0.18);
+   }
+   .actions button.btn-status:hover {
+       background: var(--azure);
+       color: #fff;
+       border-color: var(--azure);
+       transform: translateY(-1px);
+       box-shadow: var(--shadow-accent);
+   }
+   
+   /* ردیف لودینگ */
+   .loading-row td {
+       text-align: center;
+       color: var(--text-muted);
+       padding: 48px;
+       font-size: 13.5px;
+   }
+   
+   /* ==========================================================================
+      ۹. دکمه‌های عمومی
+      ========================================================================== */
+   .btn {
+       padding: 10px 22px;
+       border: none;
+       border-radius: var(--radius-md);
+       cursor: pointer;
+       font-family: inherit;
+       font-weight: 700;
+       font-size: 13.5px;
+       transition: var(--transition);
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       gap: 6px;
+   }
+   
+   .btn-primary {
+       background: var(--azure);
+       color: #fff;
+       box-shadow: var(--shadow-accent);
+   }
+   .btn-primary:hover {
+       background: var(--royal);
+       transform: translateY(-2px);
+       box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+   }
+   
+   .btn-save {
+       background: rgba(22, 163, 74, 0.09);
+       color: #15803D;
+       border: 1px solid rgba(22, 163, 74, 0.25);
+   }
+   .btn-save:hover {
+       background: #16A34A;
+       color: #fff;
+       border-color: #16A34A;
+   }
+   
+   .btn-cancel {
+       background: var(--sky);
+       color: var(--text-muted);
+       border: 1px solid var(--border-subtle);
+   }
+   .btn-cancel:hover {
+       background: var(--haze);
+       color: var(--deep-blue);
+       border-color: var(--border-rich);
+   }
+   
+   /* ==========================================================================
+      ۱۰. مودال
+      ========================================================================== */
+   .modal {
+       position: fixed;
+       inset: 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       z-index: 1000;
+       opacity: 0;
+       visibility: hidden;
+       transition: opacity 0.3s ease, visibility 0.3s ease;
+       padding: 20px;
+   }
+   
+   .modal[hidden="false"] {
+       opacity: 1;
+       visibility: visible;
+   }
+   
+   .modal-backdrop {
+       position: absolute;
+       inset: 0;
+       background: rgba(15, 23, 42, 0.5);
+       backdrop-filter: blur(6px);
+   }
+   
+   .modal-content {
+       background: var(--bg-card);
+       padding: 36px 32px;
+       border-radius: var(--radius-lg);
+       box-shadow: 0 24px 64px rgba(15, 23, 42, 0.2);
+       width: 100%;
+       max-width: 460px;
+       position: relative;
+       z-index: 1001;
+       border: 1px solid var(--border-subtle);
+   }
+   
+   /* نوار رنگی بالای مودال */
+   .modal-content::before {
+       content: '';
+       position: absolute;
+       top: 0; right: 0; left: 0;
+       height: 4px;
+       background: linear-gradient(90deg, var(--azure), var(--blue-400));
+       border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+   }
+   
+   .modal-content h2 {
+       font-size: 18px;
+       font-weight: 900;
+       color: var(--navy);
+       margin-bottom: 8px;
+       letter-spacing: -0.4px;
+   }
+   
+   .modal-content p {
+       font-size: 13.5px;
+       color: var(--text-muted);
+       margin-bottom: 24px;
+       padding-bottom: 20px;
+       border-bottom: 1px solid var(--border-subtle);
+       line-height: 1.7;
+   }
+   
+   .modal-content p strong { color: var(--azure); font-weight: 800; }
+   
+   .modal-content label {
+       display: block;
+       margin-bottom: 6px;
+       font-weight: 700;
+       font-size: 12.5px;
+       color: var(--text-muted);
+   }
+   
+   .modal-content select,
+   .modal-content input {
+       width: 100%;
+       padding: 11px 14px;
+       margin-bottom: 20px;
+       border: 1.5px solid var(--border-subtle);
+       border-radius: var(--radius-md);
+       background: var(--sky);
+       color: var(--text-main);
+       font-family: inherit;
+       font-size: 13.5px;
+       transition: var(--transition);
+       outline: none;
+   }
+   
+   .modal-content select:focus,
+   .modal-content input:focus {
+       border-color: var(--azure);
+       background: #fff;
+       box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+   }
+   
+   .modal-actions {
+       display: flex;
+       justify-content: flex-start;
+       gap: 10px;
+       margin-top: 8px;
+       padding-top: 20px;
+       border-top: 1px solid var(--border-subtle);
+   }
+   
+   /* ==========================================================================
+      ۱۱. رسپانسیو
+      ========================================================================== */
+   @media (max-width: 992px) {
+       .main-content { flex-direction: column; }
+       .sidebar {
+           width: 100%;
+           height: auto;
+           position: static;
+           border-left: none;
+           border-bottom: 1px solid var(--border-subtle);
+           padding: 16px;
+       }
+       .sidebar ul { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+       .content-area { padding: 24px 16px; }
+   }
+   
+   @media (max-width: 650px) {
+       .filters { flex-direction: column; align-items: stretch; }
+       .filters select, .filters input { width: 100%; }
+       .modal-content { padding: 24px 20px; }
+       .modal-actions { flex-direction: column; }
+       .btn { width: 100%; }
+   }

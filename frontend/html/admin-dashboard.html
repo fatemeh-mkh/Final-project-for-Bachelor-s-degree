@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد ادمین - مدیریت شرکت‌ها</title>
+    <link rel="stylesheet" href="/css/admin-dashboard.css">
+    <link rel="preload" href="/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdn.jsdelivr.net/font-yg/v1.0/yg-font.css" rel="stylesheet"> 
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <aside class="sidebar">
+            <h3>داشبورد ادمین</h3>
+            <ul>
+                <li><a href="#companies" class="active">مدیریت شرکت‌ها</a></li>
+                <li><a href="#reports">گزارش‌ها</a></li>
+                <li><a href="#settings">تنظیمات</a></li>
+            </ul>
+        </aside>
+
+        <section class="content-area">
+            <h1>مدیریت شرکت‌ها</h1>
+
+            <div class="filters-and-actions">
+                <div class="filters">
+                    <label for="status-filter">فیلتر وضعیت:</label>
+                    <select id="status-filter">
+                        <option value="all">همه</option>
+                        <option value="pending">در انتظار تایید</option>
+                        <option value="approved">تایید شده</option>
+                        <option value="rejected">رد شده</option>
+                        <option value="suspended">مسدود شده</option>
+                    </select>
+
+                    <label for="search-company">جستجو:</label>
+                    <input type="text" id="search-company" placeholder="جستجو در نام، صنعت، شهر یا ایمیل...">
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="companies-table">
+                    <thead>
+                        <tr>
+                            <th>نام شرکت</th>
+                            <th>صنعت / حوزه کاری</th>
+                            <th>موقعیت مکانی</th>
+                            <th>وب‌سایت</th>
+                            <th>ایمیل ارتباطی</th>
+                            <th>وضعیت</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="companies-tbody">
+                        <tr class="loading-row">
+                            <td colspan="7">در حال بارگیری اطلاعات شرکت‌ها...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <div id="status-modal" class="modal" hidden>
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <h2>تغییر وضعیت شرکت</h2>
+            <p>شرکت: <strong id="modal-company-name"></strong></p>
+            
+            <label for="modal-new-status">وضعیت جدید:</label>
+            <select id="modal-new-status">
+                <option value="pending">در انتظار تایید</option>
+                <option value="approved">تایید شده</option>
+                <option value="rejected">رد شده</option>
+                <option value="suspended">مسدود شده</option>
+            </select>
+            
+            <div class="modal-actions">
+                <button id="modal-save-btn" class="btn btn-save">ذخیره تغییرات</button>
+                <button id="modal-cancel-btn" class="btn btn-cancel">لغو</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin_dashboard.js"></script>
+    <script src="/js/layout-loader.js"></script>
+
+</body>
+</html>

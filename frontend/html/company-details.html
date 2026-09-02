@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزئیات شرکت | اینترنو</title>
+
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="/css/company-details.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <div class="content-container">
+
+            <section class="company-hero-card">
+
+                <div class="company-logo-zone">
+                    <div class="logo-frame" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid #e2e8f0;">
+                        <img 
+                            id="company-logo" 
+                            src="https://cdn-icons-png.flaticon.com/512/5602/5602732.png" 
+                            onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3061/3061341.png';"
+                            alt="لوگوی شرکت رایا" 
+                            class="company-logo"
+                            style="width: 80%; height: 80%; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));"
+                        >
+                    </div>
+                
+                </div>
+
+                <div class="company-info-zone">
+                    <div class="company-title-row">
+                        <div>
+                            <span class="company-eyebrow">
+                                <i class="fa-solid fa-building"></i>
+                                پروفایل شرکت
+                            </span>
+
+                            <h1 id="company-name" class="company-name">
+                                در حال بارگذاری...
+                            </h1>
+                        </div>
+
+                        <span class="company-status-badge">
+                            <i class="fa-solid fa-circle-check"></i>
+                            فعال
+                        </span>
+                    </div>
+
+                    <div class="company-meta-info">
+                        <p class="job-title">
+                            <i class="fa-solid fa-briefcase"></i>
+                            صنعت:
+                            <span id="company-industry">---</span>
+                        </p>
+
+                        <p class="location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            مکان:
+                            <span id="company-location">---</span>
+                        </p>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="contact-details">
+                        <p>
+                            <i class="fa-solid fa-globe"></i>
+                            وب‌سایت:
+                            <a id="company-website" href="#" target="_blank" rel="noopener">
+                                ---
+                            </a>
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-envelope"></i>
+                            ایمیل:
+                            <span id="company-email">---</span>
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-phone"></i>
+                            تلفن:
+                            <span id="company-phone">---</span>
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-users"></i>
+                            تعداد کارکنان:
+                            <span id="company-size">---</span>
+                        </p>
+
+                        <p class="full-width-address">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            آدرس:
+                            <span id="company-address">---</span>
+                        </p>
+                    </div>
+
+                    <div class="resume-section">
+                        <div class="resume-content">
+                            <span class="resume-icon">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </span>
+
+                            <div>
+                                <h3>ارسال رزومه</h3>
+                                <p>
+                                    برای همکاری با این شرکت، رزومه خود را ارسال کنید تا در اسرع وقت بررسی شود.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-send-resume">
+                            ارسال درخواست
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="about-card">
+                <div class="section-title-block">
+                    <span class="section-kicker">درباره</span>
+                    <h2>درباره شرکت</h2>
+                </div>
+
+                <p id="company-about">
+                    در حال دریافت اطلاعات شرکت...
+                </p>
+            </section>
+
+            <section class="reviews-section">
+                <div class="section-header">
+                    <div>
+                        <span class="section-kicker">Reviews</span>
+                        <h2>
+                            <i class="fa-solid fa-comments"></i>
+                            تجربه‌های کاربران
+                        </h2>
+                    </div>
+
+                    <span class="section-subtitle">
+                        تجربه‌های ثبت‌شده توسط کارآموزان
+                    </span>
+                </div>
+
+                <div class="slider-wrapper">
+                    <button type="button" class="slider-arrow prev-arrow" aria-label="قبلی">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div id="experience-container" class="cards-grid">
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="user-info">
+                                    <span class="user-avatar">
+                                        <i class="fa-solid fa-user-graduate"></i>
+                                    </span>
+
+                                    <div>
+                                        <span class="user-badge">کارآموز سابق</span>
+                                        <span class="review-date">۱۴۰۲/۱۰/۱۵</span>
+                                    </div>
+                                </div>
+
+                                <div class="rating-stars">
+                                    <span>۴.۵</span>
+                                </div>
+                            </div>
+
+                            <p class="review-text">
+                                هنوز تجربه‌ای برای این شرکت ثبت نشده است. این کارت نمونه برای نمایش ساختار تجربه کاربران اینترنو است.
+                            </p>
+
+                           <div class="review-footer">
+                                <span class="votes-count">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    ۲۴ تایید
+                                </span>
+
+                                <button type="button" class="btn-view">
+                                    مشاهده کامل
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="slider-arrow next-arrow" aria-label="بعدی">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section class="jobs-section">
+                <div class="section-header">
+                    <div>
+                        <span class="section-kicker">Jobs</span>
+                        <h2>
+                            <i class="fa-solid fa-briefcase"></i>
+                            فرصت‌های شغلی فعال
+                        </h2>
+                    </div>
+
+                    <span class="section-subtitle">
+                        موقعیت‌های قابل درخواست
+                    </span>
+                </div>
+
+                <div class="slider-wrapper">
+                    <button type="button" class="slider-arrow prev-arrow" aria-label="قبلی">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div id="jobs-container" class="cards-grid">
+
+                        <div class="job-card">
+                            <div class="job-card-header">
+                                <span class="job-icon">
+                                    <i class="fa-solid fa-code"></i>
+                                </span>
+
+                                <div>
+                                    <h3>برنامه‌نویس فرانت‌اند Intern</h3>
+                                    <span class="job-type">کارآموزی</span>
+                                </div>
+                            </div>
+
+                            <div class="tags">
+                                <span class="tag">دورکاری</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Junior</span>
+                            </div>
+
+                            <span class="job-location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                تهران، جردن
+                            </span>
+
+                            <button type="button" class="btn-sub-job">
+                                ارسال درخواست
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="slider-arrow next-arrow" aria-label="بعدی">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/layout-loader.js"></script>
+    <script src="/js/company-details.js"></script>
+
+</body>
+</html>

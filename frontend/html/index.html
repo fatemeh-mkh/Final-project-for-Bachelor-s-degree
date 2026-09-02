@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لیست تجربه‌های کارآموزی</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/hero-slider.css">
+</head>
+
+<body>
+
+  <div id="header-container"></div>
+
+  <div class="main-content-wrapper">
+
+    <header class="top-header">
+
+      <div class="header-title">
+        <h1>تجربه‌های کارآموزی</h1>
+        <p>تجربه‌هایی که مسیر کارآموزی دیگران را روشن‌تر می‌کنند</p>
+      </div>
+
+      <div class="header-actions">
+
+        <!-- فقط برای دانشجو و ادمین لاگین‌شده نمایش داده می‌شود -->
+        <a href="add.html"
+           id="addExperienceBtn"
+           class="btn btn-primary"
+           style="display: none;">
+          + افزودن تجربه
+        </a>
+
+      </div>
+
+    </header>
+
+
+    <div class="hero-slider-section">
+
+      <div class="hero-slider" id="heroSlider">
+
+        <div class="slide active"
+             style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1400&auto=format&fit=crop&q=80')">
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+
+            <span class="slide-badge">۱٬۲۰۰+ تجربه ثبت‌شده</span>
+
+            <h2>تجربه‌های واقعی از دنیای کار</h2>
+
+            <p>
+              صدها کارآموز داستان خود را به اشتراک گذاشته‌اند تا مسیر تو هموارتر شود
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide"
+             style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400&auto=format&fit=crop&q=80')">
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+
+            <span class="slide-badge">شرکت‌های برتر</span>
+
+            <h2>نظرات صادقانه، قبل از اینکه بروی</h2>
+
+            <p>
+              بدان در کدام شرکت چه انتظاری داری — از زبان کسانی که بوده‌اند
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide"
+             style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&auto=format&fit=crop&q=80')">
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+
+            <span class="slide-badge">تصمیم هوشمند</span>
+
+            <h2>مسیر کارآموزی‌ات را با داده واقعی بساز</h2>
+
+            <p>
+              امتیازات، بازه‌های زمانی و نظرات — همه یکجا در اینترنو
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide"
+             style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1400&auto=format&fit=crop&q=80')">
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+
+            <span class="slide-badge">جامعه اینترنو</span>
+
+            <h2>هر تجربه یک راهنما</h2>
+
+            <p>
+              برای کسی که بعد از تو می‌آید — تجربه‌ات را به اشتراک بگذار
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="slide"
+             style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&auto=format&fit=crop&q=80')">
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+
+            <span class="slide-badge">رشد حرفه‌ای</span>
+
+            <h2>از دانشجو تا حرفه‌ای</h2>
+
+            <p>
+              اینترنو همراه تو در هر قدم از مسیر شغلی‌ات
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button class="slider-btn slider-btn-prev"
+              id="sliderPrev"
+              aria-label="اسلاید قبلی">
+
+        <svg width="20"
+             height="20"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2.5"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+          <polyline points="9 18 15 12 9 6"></polyline>
+
+        </svg>
+
+      </button>
+
+
+      <button class="slider-btn slider-btn-next"
+              id="sliderNext"
+              aria-label="اسلاید بعدی">
+
+        <svg width="20"
+             height="20"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2.5"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+          <polyline points="15 18 9 12 15 6"></polyline>
+
+        </svg>
+
+      </button>
+
+
+      <div class="slider-dots" id="sliderDots">
+
+        <button class="dot active"
+                data-index="0"
+                aria-label="اسلاید ۱">
+        </button>
+
+        <button class="dot"
+                data-index="1"
+                aria-label="اسلاید ۲">
+        </button>
+
+        <button class="dot"
+                data-index="2"
+                aria-label="اسلاید ۳">
+        </button>
+
+        <button class="dot"
+                data-index="3"
+                aria-label="اسلاید ۴">
+        </button>
+
+        <button class="dot"
+                data-index="4"
+                aria-label="اسلاید ۵">
+        </button>
+
+      </div>
+
+
+      <div class="slider-progress">
+
+        <div class="slider-progress-bar"
+             id="sliderProgress">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <main class="dashboard-layout">
+
+      <aside class="sidebar-panel">
+
+        <div class="glass-card sidebar-card">
+
+          <div class="sidebar-head">
+
+            <h2>فیلترها</h2>
+
+            <p>
+              لیست تجربه‌ها را دقیق‌تر جستجو کن
+            </p>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="filterTitle">
+              عنوان تجربه
+            </label>
+
+            <input type="text"
+                   id="filterTitle"
+                   placeholder="مثلاً کارآموز فرانت‌اند">
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="filterCompany">
+              نام شرکت
+            </label>
+
+            <input type="text"
+                   id="filterCompany"
+                   placeholder="مثلاً پارس‌ تک">
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="filterRating">
+              حداقل امتیاز
+            </label>
+
+            <select id="filterRating">
+
+              <option value="">همه</option>
+              <option value="1">۱</option>
+              <option value="2">۲</option>
+              <option value="3">۳</option>
+              <option value="4">۴</option>
+              <option value="5">۵</option>
+
+            </select>
+
+          </div>
+
+
+          <div class="sidebar-actions">
+
+            <button id="applyFiltersBtn"
+                    class="btn btn-primary full">
+              اعمال فیلتر
+            </button>
+
+            <button id="clearFiltersBtn"
+                    class="btn btn-secondary full">
+              پاک کردن فیلترها
+            </button>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+
+      <section class="content-panel">
+
+        <div class="glass-card content-card">
+
+          <div class="table-toolbar">
+
+            <div>
+
+              <h2>لیست تجربه‌ها</h2>
+
+              <p class="table-subtitle">
+                نمایش همه تجربه‌های ثبت‌شده
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="table-wrapper custom-scrollbar">
+
+            <table class="experience-table">
+
+              <thead>
+
+                <tr>
+
+                  <th>عنوان</th>
+                  <th>شرکت</th>
+                  <th>امتیاز</th>
+                  <th>بازه زمانی</th>
+                  <th>مدیریت</th>
+
+                  <th style="width:110px;text-align:center;">
+                    نشان‌ها
+                  </th>
+
+                </tr>
+
+              </thead>
+
+              <tbody id="experienceTableBody">
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <div id="footer-container"></div>
+
+  <div id="globalMessage"
+       class="global-message">
+  </div>
+
+
+  <script src="/js/layout-loader.js"></script>
+
+
+  <!-- =========================
+       کنترل دسترسی ثبت تجربه
+       ========================= -->
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const addExperienceBtn =
+        document.getElementById("addExperienceBtn");
+
+      if (!addExperienceBtn) {
+        return;
+      }
+
+      /*
+       * شرکت هنگام ورود:
+       *
+       * companyLoggedIn = true
+       *
+       * بنابراین اگر شرکت وارد شده باشد،
+       * دکمه افزودن تجربه نمایش داده نمی‌شود.
+       */
+
+      const companyLoggedIn =
+        localStorage.getItem("companyLoggedIn") === "true";
+
+
+      /*
+       * بررسی ورود دانشجو / ادمین
+       *
+       * در پروژه فعلی، برای شرکت companyLoggedIn
+       * به صورت جداگانه ذخیره می‌شود.
+       *
+       * اگر شرکت نباشد و توکن کاربر وجود داشته باشد،
+       * کاربر را لاگین‌شده در نظر می‌گیریم.
+       */
+
+      const userToken =
+        localStorage.getItem("token") ||
+        localStorage.getItem("userToken") ||
+        localStorage.getItem("accessToken");
+
+
+      const userLoggedIn =
+        !!userToken;
+
+
+      /*
+       * قوانین نمایش:
+       *
+       * شرکت      → مخفی
+       * دانشجو    → نمایش
+       * ادمین     → نمایش
+       * مهمان     → مخفی
+       */
+
+      if (companyLoggedIn) {
+
+        addExperienceBtn.style.display = "none";
+
+      } else if (userLoggedIn) {
+
+        addExperienceBtn.style.display = "inline-flex";
+
+      } else {
+
+        addExperienceBtn.style.display = "none";
+
+      }
+
+    });
+
+  </script>
+
+
+  <!-- =========================
+       Hero Slider
+       ========================= -->
+
+  <script>
+
+    (function () {
+
+      const slides =
+        document.querySelectorAll('.hero-slider .slide');
+
+      const dots =
+        document.querySelectorAll('.slider-dots .dot');
+
+      const progress =
+        document.getElementById('sliderProgress');
+
+      const DURATION = 5000;
+
+      let current = 0;
+      let timer;
+
+
+      function goTo(index) {
+
+        if (!slides.length) {
+          return;
+        }
+
+        slides[current].classList.remove('active');
+
+        if (dots[current]) {
+          dots[current].classList.remove('active');
+        }
+
+        current =
+          (index + slides.length) % slides.length;
+
+        slides[current].classList.add('active');
+
+        if (dots[current]) {
+          dots[current].classList.add('active');
+        }
+
+        resetProgress();
+
+      }
+
+
+      function resetProgress() {
+
+        if (!progress) {
+          return;
+        }
+
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+
+        requestAnimationFrame(() => {
+
+          requestAnimationFrame(() => {
+
+            progress.style.transition =
+              `width ${DURATION}ms linear`;
+
+            progress.style.width = '100%';
+
+          });
+
+        });
+
+      }
+
+
+      function startAuto() {
+
+        clearInterval(timer);
+
+        timer = setInterval(() => {
+
+          goTo(current + 1);
+
+        }, DURATION);
+
+      }
+
+
+      document
+        .getElementById('sliderNext')
+        ?.addEventListener('click', () => {
+
+          goTo(current + 1);
+          startAuto();
+
+        });
+
+
+      document
+        .getElementById('sliderPrev')
+        ?.addEventListener('click', () => {
+
+          goTo(current - 1);
+          startAuto();
+
+        });
+
+
+      dots.forEach(dot => {
+
+        dot.addEventListener('click', () => {
+
+          goTo(parseInt(dot.dataset.index));
+          startAuto();
+
+        });
+
+      });
+
+
+      let tx = 0;
+
+      const sl =
+        document.getElementById('heroSlider');
+
+
+      sl?.addEventListener(
+        'touchstart',
+        e => {
+
+          tx = e.touches[0].clientX;
+
+        },
+        { passive: true }
+      );
+
+
+      sl?.addEventListener(
+        'touchend',
+        e => {
+
+          const d =
+            tx - e.changedTouches[0].clientX;
+
+          if (Math.abs(d) > 50) {
+
+            goTo(
+              d > 0
+                ? current + 1
+                : current - 1
+            );
+
+            startAuto();
+
+          }
+
+        }
+      );
+
+
+      const section =
+        document.querySelector('.hero-slider-section');
+
+
+      section?.addEventListener(
+        'mouseenter',
+        () => clearInterval(timer)
+      );
+
+
+      section?.addEventListener(
+        'mouseleave',
+        () => startAuto()
+      );
+
+
+      resetProgress();
+      startAuto();
+
+    })();
+
+  </script>
+
+
+  <script src="/js/index.js"></script>
+
+</body>
+
+</html>

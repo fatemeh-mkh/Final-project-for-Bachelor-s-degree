@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثبت تجربه کارآموزی | اینترنو</title>
+  <link rel="stylesheet" href="/css/add.css">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div id="header-container"></div>
+
+  <div class="premium-hero-banner">
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-graduation-cap"></i> اشتراک‌گذاری دانش
+        </div>
+        
+        <h1>ثبت تجربه کارآموزی</h1>
+        <p>با ثبت تجربیات خود، مسیر انتخاب را برای بقیه کارآموزان روشن کنید.</p>
+    </div>
+</div>
+
+  <main class="container form-page">
+    <section class="glass-card form-card">
+      <form id="experienceForm" class="form-layout">
+
+        <div class="form-group">
+          <label for="title">عنوان تجربه</label>
+          <input id="title" type="text" required placeholder="مثال: کارآموز برنامه‌نویسی فرانت‌اند">
+        </div>
+
+        <div class="form-group">
+          <label>شرکت محل کارآموزی</label>
+          <div id="companySlider" class="company-slider">
+            <button type="button" id="prevCompany" class="slide-btn">❮</button>
+            <div class="company-display">
+              <span id="companyName">در حال بارگذاری شرکت‌ها...</span>
+            </div>
+            <button type="button" id="nextCompany" class="slide-btn">❯</button>
+          </div>
+          <input type="hidden" id="companySelect">
+        </div>
+        
+        <div class="form-group">
+          <label for="description">توضیحات و جزئیات تجربه</label>
+          <textarea id="description" rows="5" required placeholder="درباره نحوه مدیریت، وظایف خود، تکنولوژی‌ها و محیط کار بنویسید..."></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="startDate">تاریخ شروع دوره</label>
+            <input
+              type="text"
+              id="startDate"
+              placeholder="1402-06-01"
+              onfocus="this.type='date'"
+              onblur="if(!this.value)this.type='text'"
+            />
+          </div>
+        
+          <div class="form-group">
+            <label for="endDate">تاریخ پایان دوره</label>
+            <input
+              type="text"
+              id="endDate"
+              placeholder="1402-12-15"
+              onfocus="this.type='date'"
+              onblur="if(!this.value)this.type='text'"
+            />
+          </div>
+        </div>
+        
+        <div class="rating-section">
+          <label class="rating-section-title">امتیازدهی به عملکرد شرکت</label>
+          <p class="rating-section-subtitle">لطفاً بر اساس فاکتورهای زیر، از ۱ تا ۵ به این دوره امتیاز دهید.</p>
+
+          <div class="rating-grid">
+            <div class="rating-left internal-card">
+              <div class="rating-item">
+                <div class="rating-label-zone">
+                  <label>محیط کاری و فرهنگ تیمی</label>
+                </div>
+                <input type="range" min="1" max="5" value="3" class="rate-input" data-id="env">
+              </div>
+
+              <div class="rating-item">
+                <div class="rating-label-zone">
+                  <label>مدیریت و آموزش</label>
+                </div>
+                <input type="range" min="1" max="5" value="3" class="rate-input" data-id="management">
+              </div>
+
+              <div class="rating-item">
+                <div class="rating-label-zone">
+                  <label>حقوق، هدایا و مزایا</label>
+                </div>
+                <input type="range" min="1" max="5" value="3" class="rate-input" data-id="salary">
+              </div>
+
+              <div class="rating-item">
+                <div class="rating-label-zone">
+                  <label>تناسب کار با رشته تحصیلی</label>
+                </div>
+                <input type="range" min="1" max="5" value="3" class="rate-input" data-id="match">
+              </div>
+
+              <div class="rating-item">
+                <div class="rating-label-zone">
+                  <label>رضایت کلی از دوره</label>
+                </div>
+                <input type="range" min="1" max="5" value="3" class="rate-input" data-id="general">
+              </div>
+            </div>
+
+            <div class="rating-right internal-card">
+              <h3>میانگین امتیاز کل</h3>
+              <div class="badge-wrapper">
+                <div class="rating-badge" id="finalRatingBadge">۳.۰</div>
+                <small id="finalRatingText">۳ / ۵</small>
+              </div>
+              <input type="hidden" id="finalRating" name="finalRating" value="3">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-action">
+          <button type="submit" class="btn-submit-premium">ثبت نهایی تجربه</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+    
+  <script src="/js/layout-loader.js"></script>
+  <script src="/js/add.js"></script>
+
+</body>
+</html>

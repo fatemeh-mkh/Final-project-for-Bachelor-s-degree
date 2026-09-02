@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما | اینترنو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/main_header.css">
+    <style>
+        :root {
+            /* متغیرهای اختصاصی صفحه تماس با ما */
+            --primary: #2563EB;
+            --primary-light: #F59E0B;
+            --bg-light: #EFF6FF;
+            --text-dark: #0F172A;
+            --text-muted: #475569;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(37, 99, 235, 0.08);
+
+            /* 📌 تزریق متغیرهای پالت تیره Cosmos برای زنده شدن رنگ‌های فابریک فوتر */
+            --navy: #0F172A;          /* لایه اصلی تیره فوتر */
+            --deep-blue: #090D16;     /* رنگ تیره عمیق‌تر بخش کپی‌رایت */
+            --blue-400: #38BDF8;      /* آبی روشن برای عناوین فوتر */
+            --blue-200: #94A3B8;      /* رنگ متن ثانویه و لینک‌های فوتر */
+            --border-rich: #1E293B;   /* رنگ خطوط مرزی فوتر */
+            --gold: #F59E0B;          /* طلایی گرم برای هوور لینک‌ها */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazir', system-ui, -apple-system, sans-serif;
+        }
+
+        /* 📌 تنظیم فلکس‌باکس بدنه برای کنترل ساختار لودینگ ماژولار و جلوگیری از تداخل */
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 📌 کانتینر اصلی کل فضای خالی میانی را پر می‌کند تا فوتر دقیقاً به کف چسبیده رندر شود */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            flex: 1;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-header h1 span {
+            color: var(--primary);
+        }
+
+        /* ساختار دو ستونه اصلی */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
+        }
+
+        /* ستون اطلاعات تماس */
+        .info-panel h2 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .info-details h4 {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .info-details p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* ستون فرم تماس */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            background: #fff;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
+        }
+
+        /* نوتیفیکیشن موفقیت پیام */
+        .success-toast {
+            display: none;
+            background: #10B981;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <div class="container">
+        <section class="contact-header">
+            <h1>با ما در <span>ارتباط</span> باشید</h1>
+            <p>سؤال، پیشنهاد یا ایده‌ای برای توسعه دارید؟ مشتاقانه منتظر پیام شما هستیم.</p>
+        </section>
+
+        <div class="contact-wrapper">
+            <section class="glass-card info-panel">
+                <h2>اطلاعات تماس</h2>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">از طریق کانال‌های زیر یا فرم روبه‌رو می‌توانید مستقیماً با مدیریت ارتباط برقرار کنید.</p>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="info-details">
+                        <h4>پشتیبانی و ایمیل رسمی</h4>
+                        <p>fatem.mokhtari@yahoo.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-details">
+                        <h4>موقعیت و مرکز توسعه پروژه</h4>
+                        <p>دانشگاه اصفهان</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="glass-card">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="userName">نام و نام خانوادگی</label>
+                        <input type="text" id="userName" class="form-control" placeholder="مثلاً: علی رضایی" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">آدرس ایمیل</label>
+                        <input type="email" id="userEmail" class="form-control" placeholder="name@example.com" style="direction: ltr;" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="messageText">متن پیام شما</label>
+                        <textarea id="messageText" class="form-control" placeholder="دیدگاه، پروپوزال یا پیشنهاد خود را اینجا بنویسید..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        ارسال پیام به اینترنو
+                    </button>
+                </form>
+                <div id="successToast" class="success-toast">
+                    <i class="fas fa-check-circle"></i> پیام شما با موفقیت ثبت شد. متشکریم!
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/layout-loader.js"></script>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const toast = document.getElementById('successToast');
+            toast.style.display = 'block';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

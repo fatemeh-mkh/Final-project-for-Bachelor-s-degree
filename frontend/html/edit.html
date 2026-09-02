@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویرایش تجربه کارآموزی | اینترنو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/main_header.css">
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <div class="container form-page">
+        <header class="page-header center">
+            <h1>ویرایش <span>تجربه کارآموزی</span></h1>
+        </header>
+
+        <section class="glass-card form-card">
+            <form class="form-layout">
+                <div class="form-group">
+                    <label for="title">عنوان تجربه</label>
+                    <input id="title" type="text" placeholder="مثلاً: توسعه‌دهنده فرانت‌اند، طراح UI/UX...">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">توضیحات و دستاوردها</label>
+                    <textarea id="description" placeholder="شرح وظایف، تکنولوژی‌های استفاده‌شده و تجربیاتی که کسب کردید..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startDate">تاریخ شروع</label>
+                        <input id="startDate" type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDate">تاریخ پایان</label>
+                        <input id="endDate" type="date">
+                    </div>
+                </div>
+
+                <div class="form-group rating-group">
+                    <label>امتیاز شما به این دوره</label>
+                    <div class="rating-wrapper">
+                        <input type="range" id="rating" min="1" max="5" value="3" oninput="document.getElementById('ratingLabel').innerText = this.value">
+                        <span id="ratingLabel" class="rating-bubble">۳</span>
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button onclick="updateExperience()" type="button" class="btn btn-primary btn-lg">
+                        <i class="fas fa-save" style="margin-left: 8px;"></i>
+                        ذخیره تغییرات تجربه
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/layout-loader.js"></script>
+    <script src="/js/edit.js"></script>
+</body>
+</html>

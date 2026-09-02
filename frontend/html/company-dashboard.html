@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>داشبورد شرکت</title>
+
+<link rel="stylesheet" href="/css/company-dashboard.css">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+<header class="topbar glass-card">
+
+<div class="brand">
+<div class="logo-box">🏢</div>
+
+<div class="brand-meta">
+<strong class="brand-title">داشبورد شرکت</strong>
+<span class="brand-sub">مدیریت آگهی‌ها و متقاضیان</span>
+</div>
+</div>
+
+<nav class="top-actions">
+<button class="btn-sm" id="btnNavDashboard">داشبورد</button>
+<button class="btn-sm" id="btnNavNewJob">ثبت آگهی</button>
+<button class="btn-sm" id="btnNavApplicants">متقاضیان</button>
+
+<button class="btn-sm danger" id="page-logout-btn">
+خروج
+</button>
+</nav>
+
+</header>
+
+<main class="dashboard-container">
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="stats-header glass-card" id="sectionDashboard">
+
+<div class="stat-item">
+<span class="stat-label">آگهی فعال</span>
+<strong class="stat-value" id="statActiveJobs">0</strong>
+</div>
+
+<div class="stat-item">
+<span class="stat-label">کل متقاضی‌ها</span>
+<strong class="stat-value" id="statTotalApplicants">0</strong>
+</div>
+
+<div class="stat-item">
+<span class="stat-label">در انتظار بررسی</span>
+<strong class="stat-value" id="statPendingApplicants">0</strong>
+</div>
+
+<div class="stat-item">
+<span class="stat-label">پذیرفته‌شده</span>
+<strong class="stat-value" id="statAcceptedApplicants">0</strong>
+</div>
+
+<div class="stat-item">
+<span class="stat-label">پیام‌ها</span>
+<strong class="stat-value" id="statMessages">0</strong>
+</div>
+
+</section>
+
+<!-- ================= JOB LIST ================= -->
+
+<section class="section-card glass-card">
+
+<div class="section-head">
+
+<h3>آگهی‌ها</h3>
+
+<div class="section-actions">
+<input class="input" id="jobSearch" placeholder="جستجو در آگهی‌ها (عنوان یا مهارت)..." />
+<button class="btn-sm primary" id="btnOpenCreateJob">+ ثبت آگهی</button>
+</div>
+
+</div>
+
+<div class="content-table" id="jobsTable"></div>
+
+<div class="table-hint">
+<small>برای مدیریت: مشاهده متقاضیان، ویرایش یا حذف آگهی.</small>
+</div>
+
+</section>
+
+<!-- ================= JOB FORM ================= -->
+
+<section class="section-card glass-card" id="sectionJobForm" hidden>
+
+<div class="section-head">
+
+<h3>ثبت آگهی</h3>
+
+<div class="section-actions">
+<button class="btn-sm" id="btnCloseJobForm">بستن</button>
+</div>
+
+</div>
+
+<form id="jobForm" class="form-grid" autocomplete="off">
+
+<input type="hidden" id="jobId"/>
+
+<div class="field">
+<label for="jobTitle">عنوان</label>
+<input class="input" id="jobTitle" required placeholder="مثلاً کارآموز بک‌اند"/>
+</div>
+
+<div class="field">
+<label for="jobDuration">مدت کارآموزی</label>
+<input class="input" id="jobDuration" required placeholder="مثلاً ۳ ماه / ۶ ماه"/>
+</div>
+
+<div class="field field-full">
+<label for="jobDescription">توضیحات</label>
+<textarea class="textarea" id="jobDescription" rows="4" required placeholder="شرح وظایف، شرایط همکاری..."></textarea>
+</div>
+
+<div class="field field-full">
+<label for="jobSkills">مهارت‌های لازم (با کاما جدا کن)</label>
+<input class="input" id="jobSkills" required placeholder="react, javascript, git"/>
+</div>
+
+<div class="field field-full">
+<label for="jobBenefits">مزایا</label>
+<textarea class="textarea" id="jobBenefits" rows="3" placeholder="بیمه&#10;آموزش&#10;امکان استخدام"></textarea>
+</div>
+
+<div class="form-actions field-full">
+<button class="btn-sm primary" type="submit" id="btnSubmitJob">ذخیره آگهی</button>
+<button class="btn-sm" type="button" id="btnResetForm">پاک کردن</button>
+</div>
+
+</form>
+
+</section>
+
+<!-- ================= APPLICANTS ================= -->
+
+<section class="section-card glass-card" id="sectionApplicants" hidden>
+
+<div class="section-head">
+
+<h3>متقاضیان</h3>
+
+<div class="section-actions">
+
+<select class="input" id="filterJob">
+<option value="all">همه آگهی‌ها</option>
+</select>
+
+<select class="input" id="filterStatus">
+<option value="all">همه وضعیت‌ها</option>
+<option value="pending">در انتظار بررسی</option>
+<option value="reviewed">بررسی‌شده</option>
+<option value="accepted">پذیرفته‌شده</option>
+<option value="rejected">رد شده</option>
+</select>
+
+</div>
+
+</div>
+
+<div class="content-table" id="applicantsTable"></div>
+
+</section>
+
+</main>
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="statusModal" hidden>
+
+<div class="modal-backdrop"></div>
+
+<div class="modal-card glass-card">
+
+<div class="modal-head">
+<strong>تغییر وضعیت متقاضی</strong>
+<button class="btn-sm" id="btnCloseModal">بستن</button>
+</div>
+
+<div class="modal-body">
+
+<div class="modal-row">
+<span>نام:</span>
+<strong id="modalApplicantName">-</strong>
+</div>
+
+<div class="modal-row">
+<span>برای آگهی:</span>
+<strong id="modalApplicantJob">-</strong>
+</div>
+
+<div class="field field-full">
+<label>وضعیت جدید</label>
+
+<select class="input" id="modalStatusSelect">
+<option value="pending">در انتظار بررسی</option>
+<option value="reviewed">بررسی‌شده</option>
+<option value="accepted">پذیرفته‌شده</option>
+<option value="rejected">رد شده</option>
+</select>
+
+</div>
+
+<div class="field field-full">
+<label>یادداشت</label>
+<textarea class="textarea" id="modalNote" rows="3"></textarea>
+</div>
+
+</div>
+
+<div class="modal-actions">
+<button class="btn-sm primary" id="btnSaveApplicantStatus">ذخیره</button>
+</div>
+
+</div>
+
+</div>
+
+<div id="footer-container"></div>
+
+<script src="/js/layout-loader.js"></script>
+<script src="/js/company-dashboard.js"></script>
+<script>
+  // هندل کردن خروج از هدر داخلی دشبورد
+  document.getElementById("page-logout-btn")?.addEventListener("click", () => {
+    localStorage.clear();
+    window.location.href = "/html/auth.html";
+  });
+</script>
+
+</body>
+</html>

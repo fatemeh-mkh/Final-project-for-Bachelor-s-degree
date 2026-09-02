@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل کاربری دانشجو | سامانه کارآموزی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/student_dashboard.css">
+    <style>
+        .date-now {
+            direction: rtl;
+            display: inline-block;
+            unicode-bidi: embed;
+        }
+        
+        /* استایل اختصاصی برای بخش نمایش مهارت‌ها و علایق ذخیره‌شده */
+        .saved-profile-info {
+            margin-top: 25px;
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-right: 4px solid #3b82f6;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .saved-profile-info h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .saved-tags-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .saved-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .saved-group-title {
+            font-weight: bold;
+            color: #64748b;
+            min-width: 140px;
+        }
+        .badge-tag {
+            background-color: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .badge-tag.interest {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="profile-summary">
+                <div class="avatar">
+                    <img src="/image/web-yellow-user-profile-icon-6rGE0QE5_t.jpg" 
+                         style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                </div>
+                <h3 id="studentName">خوش آمدید دانشجو عزیز</h3>
+                <span class="status-badge" id="mbtiStatus">وضعیت MBTI</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" onclick="showSection('overview', this); return false;">
+                    <i class="fas fa-chart-pie"></i> پیشخوان
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('jobs', this); return false;">
+                    <i class="fas fa-briefcase"></i> فرصت‌های شغلی
+                </a>
+                <a href="#" class="nav-item" onclick="showSection('personality', this); return false;">
+                    <i class="fas fa-brain"></i> تست شخصیت MBTI
+                </a>
+                <a href="#" class="nav-item logout" onclick="logout(); return false;">
+                    <i class="fas fa-sign-out-alt"></i> خروج
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h2 id="sectionTitle">پیشخوان دانشجو</h2>
+                <div class="user-actions">
+                    <i class="fas fa-bell"></i>
+                    <div class="date-now" id="currentDate"></div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section id="overview" class="content-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="stat-info">
+                                <h4>پیشنهادهای شغلی</h4>
+                                <p id="statJobsCount">۰</p>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-pending" id="mbtiStatCard">
+                            <i class="fas fa-brain"></i>
+                            <div class="stat-info">
+                                <h4>وضعیت تست شخصیت</h4>
+                                <p id="statMbtiStatus">انجام نشده</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-subheader">
+                        <h3>پیشنهادهای شغلی برای شما</h3>
+                        <button type="button" class="link-more" onclick="showSection('jobs', document.querySelector('.nav-menu .nav-item:nth-child(2)'))">
+                            مشاهده همه <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                    <div id="overviewJobOffersContainer" class="section-content"></div>
+                </section>
+
+                <section id="personality" class="content-section">
+                    <div class="mbti-container">
+                        <div class="card info-card" id="testIntro">
+                            <div class="icon-header"><i class="fas fa-lightbulb"></i></div>
+                            <h3>تحلیل شخصیت و مهارت‌ها برای پیشنهاد هوشمند</h3>
+                            <p style="margin-bottom: 20px;">با انتخاب تخصص‌ها و علاقه‌مندی‌های خود و انجام تست، الگوریتم هوشمند سامانه موقعیت‌هایی را پیشنهاد می‌دهد که بالاترین تطابق را با روحیات و تخصص فنی شما دارند.</p>
+                            
+                            <div class="profile-details-form" style="margin-bottom: 25px; text-align: right;">
+                                <div class="form-group" style="margin-bottom: 24px; position: relative;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: var(--text-main);">تخصص‌ها و مهارت‌های اصلی شما:</label>
+                                    <div class="custom-multiselect" id="skillsSelectContainer">
+                                        <div class="select-box" onclick="toggleDropdown('skillsDropdown')">
+                                            <div class="selected-tags" id="selectedSkillsTags">
+                                                <span class="placeholder">انتخاب مهارت‌ها...</span>
+                                            </div>
+                                            <i class="fas fa-chevron-down arrow-icon"></i>
+                                        </div>
+                                        <div class="dropdown-list" id="skillsDropdown">
+                                            <div class="dropdown-item" data-value="HTML">HTML</div>
+                                            <div class="dropdown-item" data-value="CSS">CSS</div>
+                                            <div class="dropdown-item" data-value="JavaScript">JavaScript</div>
+                                            <div class="dropdown-item" data-value="React">React</div>
+                                            <div class="dropdown-item" data-value="Angular">Angular</div>
+                                            <div class="dropdown-item" data-value="Vue.js">Vue.js</div>
+                                            <div class="dropdown-item" data-value="Spring Boot">Spring Boot</div>
+                                            <div class="dropdown-item" data-value="Java">Java</div>
+                                            <div class="dropdown-item" data-value="Python">Python</div>
+                                            <div class="dropdown-item" data-value="Django">Django</div>
+                                            <div class="dropdown-item" data-value="PostgreSQL">PostgreSQL</div>
+                                            <div class="dropdown-item" data-value="MySQL">MySQL</div>
+                                            <div class="dropdown-item" data-value="Docker">Docker</div>
+                                            <div class="dropdown-item" data-value="Git">Git</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="form-group" style="margin-bottom: 24px; position: relative;">
+                                    <label style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: var(--text-main);">حوزه‌های کاری مورد علاقه شما:</label>
+                                    <div class="custom-multiselect" id="interestsSelectContainer">
+                                        <div class="select-box" onclick="toggleDropdown('interestsDropdown')">
+                                            <div class="selected-tags" id="selectedInterestsTags">
+                                                <span class="placeholder">انتخاب حوزه‌های علاقه...</span>
+                                            </div>
+                                            <i class="fas fa-chevron-down arrow-icon"></i>
+                                        </div>
+                                        <div class="dropdown-list" id="interestsDropdown">
+                                            <div class="dropdown-item" data-value="توسعه فرانت‌اند">توسعه فرانت‌اند (Frontend Development)</div>
+                                            <div class="dropdown-item" data-value="برنامه‌نویسی بک‌اند">برنامه‌نویسی بک‌اند (Backend Development)</div>
+                                            <div class="dropdown-item" data-value="توسعه فول‌استک">توسعه فول‌استک (Full-Stack Development)</div>
+                                            <div class="dropdown-item" data-value="برنامه‌نویسی موبایل">برنامه‌نویسی موبایل (Mobile Development)</div>
+                                            <div class="dropdown-item" data-value="تحلیل و مهندسی داده">تحلیل و مهندسی داده (Data Science)</div>
+                                            <div class="dropdown-item" data-value="مدیریت سیستم و دواپس">مدیریت سیستم و دواپس (DevOps)</div>
+                                            <div class="dropdown-item" data-value="تست و تضمین کیفیت">تست و تضمین کیفیت (QA / Testing)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn-primary" onclick="saveDetailsAndStartQuiz()">ذخیره مشخصات و شروع تست MBTI</button>
+
+                            <!-- بخش جدید: نمایش اطلاعات ثبت‌شده قبلی کاربر -->
+                            <div class="saved-profile-info" id="savedProfileInfo" style="display: none;">
+                                <h4><i class="fas fa-user-check"></i> اطلاعات ثبت‌شده در پروفایل شما:</h4>
+                                <div class="saved-tags-wrapper">
+                                    <div class="saved-group">
+                                        <span class="saved-group-title">مهارت‌های فعال:</span>
+                                        <div id="savedSkillsList">---</div>
+                                    </div>
+                                    <div class="saved-group">
+                                        <span class="saved-group-title">علاقه‌مندی‌های فعال:</span>
+                                        <div id="savedInterestsList">---</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="quizContainer" class="quiz-box" style="display:none;"></div>
+
+                        <div id="resultSection" class="result-card" style="display:none;">
+                            <div class="result-header">
+                                <i class="fas fa-trophy"></i>
+                                <h3>نتیجه تحلیل شما: <span id="resultType">ENTJ</span></h3>
+                            </div>
+                            <div id="recommendationSection">
+                                <h4><i class="fas fa-star"></i> پیشنهادهای شغلی بر اساس تیپ شما:</h4>
+                                <div id="jobsGrid" class="jobs-grid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="jobs" class="content-section">
+                     <div class="section-header">
+                        <h2>فرصت‌های شغلی</h2>
+                        <div class="search-filter-group">
+                            <input type="text" id="jobSearchInput" placeholder="جستجو بر اساس عنوان یا شرکت..." class="search-input"
+                                   oninput="filterJobs()" onkeydown="if (event.key === 'Enter') { event.preventDefault(); filterJobs(); }">
+                            <button type="button" class="btn-secondary" onclick="filterJobs()">جستجو</button>
+                        </div>
+                    </div>
+
+                    <div id="jobsJobOffersContainer" class="jobs-grid"></div>
+
+                    <div class="empty-state" id="emptyJobOffers" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <p>هیچ فرصت شغلی مطابق با جستجوی شما یافت نشد.</p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="/js/layout-loader.js"></script>
+    <script src="/js/student-dashboard.js"></script>
+</body>
+</html>

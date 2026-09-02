@@ -1,0 +1,263 @@
+/* ==========================================================================
+   ۱. پالت رنگی عمومی اینترنو (Cosmos Blue Premium UI) و تنظیمات پایه
+   ========================================================================== */
+   :root {
+    /* رنگ‌های اصلی بدنه و فرم */
+    --primary: #2563EB;
+    --primary-light: #F59E0B;
+    --bg-light: #EFF6FF;
+    --text-dark: #0F172A;
+    --text-muted: #475569;
+    --glass-bg: rgba(255, 255, 255, 0.82);
+    --glass-border: rgba(37, 99, 235, 0.08);
+    --input-bg: rgba(255, 255, 255, 0.95);
+
+    /* متغیرهای فابریک فوتر تیره Cosmos */
+    --navy: #0F172A;
+    --deep-blue: #090D16;
+    --blue-400: #38BDF8;
+    --blue-200: #94A3B8;
+    --border-rich: #1E293B;
+    --gold: #F59E0B;
+
+    /* شعاع مرزها و سایه‌ها */
+    --radius-lg: 24px;
+    --radius-premium: 14px;
+    --radius-md: 10px;
+    --shadow-premium: 0 20px 40px rgba(15, 23, 42, 0.04);
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Vazir', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   ۲. ساختار کانتینر و هدر صفحه
+   ========================================================================== */
+.container.form-page {
+    width: 90%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 120px 20px 60px;
+    flex: 1; /* هول دادن خودکار فوتر به پایین صفحه */
+}
+
+.page-header.center {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    font-weight: 850;
+    color: var(--text-dark);
+}
+
+.page-header h1 span {
+    color: var(--primary);
+    position: relative;
+}
+
+/* ==========================================================================
+   ۳. کارت شیشه‌ای پیشرفته فرم (Glass Card)
+   ========================================================================== */
+.glass-card.form-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-premium);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+}
+
+.form-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    padding-right: 4px;
+}
+
+/* ==========================================================================
+   ۴. استایل فیلدهای ورودی (Inputs & Textarea)
+   ========================================================================== */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    background: var(--input-bg);
+    padding: 14px 18px;
+    border-radius: var(--radius-premium);
+    font-size: 15px;
+    color: var(--text-dark);
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.8;
+}
+
+/* افکت فوکوس هوشمند و متحرک فیلدها */
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    background: #ffffff;
+}
+
+/* لغو استایل پیش‌فرض فیلد تاریخ مرورگرها برای هماهنگی بیشتر */
+.form-group input[type="date"] {
+    direction: ltr;
+    text-align: right;
+}
+
+/* ==========================================================================
+   ۵. بخش جذابِ اسلایدر امتیازدهی
+   ========================================================================== */
+.form-group.rating-group {
+    background: rgba(37, 99, 235, 0.03);
+    border: 1px solid rgba(37, 99, 235, 0.08);
+    border-radius: var(--radius-premium);
+    padding: 22px;
+}
+
+.rating-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.rating-wrapper input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 20px;
+    background: #E2E8F0;
+    outline: none;
+    cursor: pointer;
+}
+
+/* استایل دستگیره رنج (Thumb) */
+.rating-wrapper input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #1D4ED8);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.rating-wrapper input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* حباب نئونی نمایش دهنده عدد امتیاز */
+.rating-bubble {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary-light), #D97706);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 6px 15px rgba(245, 158, 11, 0.25);
+}
+
+/* ==========================================================================
+   ۶. استایل دکمه ذخیره تغییرات با گرادینت برتر
+   ========================================================================== */
+.form-action {
+    margin-top: 10px;
+}
+
+.btn.btn-primary.btn-lg {
+    width: 100%;
+    border: none;
+    border-radius: var(--radius-premium);
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary) 0%, #1D4ED8 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn.btn-primary.btn-lg:hover {
+    background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.3);
+}
+
+.btn.btn-primary.btn-lg:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   ۷. سیستم پاسخگو (Responsive) برای موبایل
+   ========================================================================== */
+@media (max-width: 576px) {
+    .container.form-page {
+        padding-top: 100px;
+        width: 95%;
+    }
+    .glass-card.form-card {
+        padding: 25px 20px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+}
