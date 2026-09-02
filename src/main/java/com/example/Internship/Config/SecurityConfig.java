@@ -41,6 +41,14 @@ public class SecurityConfig {
 
                 // 4. مدیریت دقیق دسترسی‌ها (Authorization)
                 .authorizeHttpRequests(auth -> auth
+
+                        // --- Swagger / OpenAPI ---
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**"
+                        ).permitAll()
+
                         // --- مسیرهای عمومی (Public) ---
                         .requestMatchers(
                                 "/api/auth/**",
@@ -52,20 +60,19 @@ public class SecurityConfig {
                                 "/api/student/personality/questions"
                         ).permitAll()
 
-                        // --- پنل ادمین (محدود به نقش ADMIN) ---
+                        // --- پنل ادمین ---
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
-                        // --- پنل دانشجو (محدود به نقش STUDENT) ---
+                        // --- پنل دانشجو ---
                         .requestMatchers("/api/student/**").hasRole("STUDENT")
                         .requestMatchers("/api/personality/submit").hasRole("STUDENT")
 
-                        // --- پنل کارفرما (محدود به نقش COMPANY) ---
+                        // --- پنل کارفرما ---
                         .requestMatchers("/api/company/**").hasRole("COMPANY")
 
                         // --- سایر درخواست‌ها ---
                         .anyRequest().authenticated()
                 )
-
                 // 5. تزریق فیلتر JWT قبل از فیلتر استاندارد امنیتی
                 .addFilterBefore(
                         jwtAuthenticationFilter,
