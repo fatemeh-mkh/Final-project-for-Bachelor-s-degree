@@ -193,18 +193,362 @@ public class RecommendationService {
 
         Map<String, List<String>> map = new HashMap<>();
 
-        map.put("INTJ", List.of("backend","data","ai","analysis","java","python","spring"));
-        map.put("INTP", List.of("research","developer","software","backend","algorithm"));
-        map.put("ENTJ", List.of("manager","lead","product","scrum","cto"));
-        map.put("ENFP", List.of("marketing","content","design","ui","ux","frontend"));
-        map.put("INFJ", List.of("research","education","hr","mentor"));
-        map.put("ESFJ", List.of("frontend","react","ui","ux","support","sales"));
-        map.put("ISTJ", List.of("qa","security","database","network","devops","postgres","mysql"));
-        map.put("ISFP", List.of("design","ui","ux","graphics","frontend","html","css"));
-        map.put("ESTJ", List.of("management","operations","admin","pmo"));
-        map.put("ENFJ", List.of("manager","mentor","hr","lead","scrum","relations"));
-        map.put("ENTP", List.of("developer","founder","ai","product","consultant"));
-        map.put("INFP", List.of("design","writer","ui","ux","research"));
+        // =================================================
+        // INTJ - معمار
+        // تحلیل‌گر، استراتژیک، مستقل و علاقه‌مند به حل مسائل پیچیده
+        // =================================================
+        map.put("INTJ", List.of(
+                "backend",
+                "software",
+                "developer",
+                "programming",
+                "java",
+                "python",
+                "spring",
+                "algorithm",
+                "data",
+                "database",
+                "ai",
+                "machine learning",
+                "analysis",
+                "architecture",
+                "system design",
+                "security",
+                "research"
+        ));
+
+        // =================================================
+        // INTP - متفکر
+        // علاقه‌مند به تحقیق، منطق، الگوریتم و حل مسئله
+        // =================================================
+        map.put("INTP", List.of(
+                "research",
+                "developer",
+                "software",
+                "backend",
+                "programming",
+                "algorithm",
+                "python",
+                "java",
+                "ai",
+                "machine learning",
+                "data science",
+                "analysis",
+                "database",
+                "system design",
+                "researcher"
+        ));
+
+        // =================================================
+        // ENTJ - فرمانده
+        // رهبری، مدیریت، تصمیم‌گیری و هدایت تیم
+        // =================================================
+        map.put("ENTJ", List.of(
+                "manager",
+                "management",
+                "lead",
+                "leader",
+                "team lead",
+                "product",
+                "product manager",
+                "project manager",
+                "scrum",
+                "agile",
+                "pmo",
+                "operations",
+                "business",
+                "strategy",
+                "cto",
+                "consultant"
+        ));
+
+        // =================================================
+        // ENTP - مبتکر
+        // ایده‌پردازی، نوآوری، تکنولوژی و حل مسائل جدید
+        // =================================================
+        map.put("ENTP", List.of(
+                "developer",
+                "software",
+                "programming",
+                "startup",
+                "founder",
+                "product",
+                "innovation",
+                "ai",
+                "machine learning",
+                "research",
+                "consultant",
+                "business",
+                "strategy",
+                "frontend",
+                "backend",
+                "full stack"
+        ));
+
+        // =================================================
+        // INFJ - حامی
+        // آموزش، تحقیق، مشاوره و فعالیت‌های انسان‌محور
+        // =================================================
+        map.put("INFJ", List.of(
+                "research",
+                "researcher",
+                "education",
+                "training",
+                "mentor",
+                "hr",
+                "human resources",
+                "psychology",
+                "consultant",
+                "content",
+                "writer",
+                "analysis",
+                "social",
+                "communication"
+        ));
+
+        // =================================================
+        // INFP - میانجی
+        // خلاق، ارزش‌محور و علاقه‌مند به طراحی و تولید محتوا
+        // =================================================
+        map.put("INFP", List.of(
+                "design",
+                "ui",
+                "ux",
+                "graphic design",
+                "writer",
+                "content",
+                "content creator",
+                "research",
+                "frontend",
+                "html",
+                "css",
+                "creative",
+                "illustration",
+                "social media"
+        ));
+
+        // =================================================
+        // ENFJ - قهرمان
+        // ارتباطات، رهبری، آموزش و کار با افراد
+        // =================================================
+        map.put("ENFJ", List.of(
+                "manager",
+                "management",
+                "mentor",
+                "mentor",
+                "hr",
+                "human resources",
+                "lead",
+                "team lead",
+                "scrum",
+                "relations",
+                "communication",
+                "training",
+                "education",
+                "sales",
+                "marketing",
+                "customer success"
+        ));
+
+        // =================================================
+        // ENFP - مبارز
+        // خلاق، اجتماعی، ایده‌پرداز و علاقه‌مند به ارتباط با دیگران
+        // =================================================
+        map.put("ENFP", List.of(
+                "marketing",
+                "content",
+                "content creator",
+                "design",
+                "ui",
+                "ux",
+                "frontend",
+                "react",
+                "javascript",
+                "social media",
+                "sales",
+                "communication",
+                "creative",
+                "branding",
+                "product"
+        ));
+
+        // =================================================
+        // ISTJ - بازرس
+        // دقیق، منظم، مسئولیت‌پذیر و علاقه‌مند به سیستم‌های ساختاریافته
+        // =================================================
+        map.put("ISTJ", List.of(
+                "qa",
+                "testing",
+                "software testing",
+                "security",
+                "database",
+                "network",
+                "devops",
+                "linux",
+                "postgres",
+                "postgresql",
+                "mysql",
+                "sql",
+                "backend",
+                "java",
+                "documentation",
+                "system administration"
+        ));
+
+        // =================================================
+        // ISFJ - مدافع
+        // دقیق، مسئولیت‌پذیر، همکاری‌محور و علاقه‌مند به پشتیبانی
+        // =================================================
+        map.put("ISFJ", List.of(
+                "support",
+                "technical support",
+                "customer support",
+                "qa",
+                "testing",
+                "documentation",
+                "hr",
+                "human resources",
+                "administration",
+                "database",
+                "frontend",
+                "ui",
+                "service",
+                "customer service",
+                "communication"
+        ));
+
+        // =================================================
+        // ESTJ - مدیر
+        // سازمان‌دهی، مدیریت عملیات و اجرای فرآیندها
+        // =================================================
+        map.put("ESTJ", List.of(
+                "management",
+                "manager",
+                "operations",
+                "admin",
+                "administration",
+                "pmo",
+                "project manager",
+                "project management",
+                "scrum",
+                "agile",
+                "team lead",
+                "business",
+                "sales",
+                "planning",
+                "coordination"
+        ));
+
+        // =================================================
+        // ESFJ - سفیر
+        // ارتباطات، خدمات، همکاری تیمی و تعامل با مشتری
+        // =================================================
+        map.put("ESFJ", List.of(
+                "frontend",
+                "react",
+                "javascript",
+                "ui",
+                "ux",
+                "support",
+                "customer support",
+                "sales",
+                "marketing",
+                "hr",
+                "human resources",
+                "communication",
+                "customer success",
+                "relations",
+                "service"
+        ));
+
+        // =================================================
+        // ISTP - صنعتگر
+        // فنی، عملی، حل مسئله و علاقه‌مند به زیرساخت و سیستم
+        // =================================================
+        map.put("ISTP", List.of(
+                "backend",
+                "developer",
+                "programming",
+                "java",
+                "python",
+                "c",
+                "cpp",
+                "c++",
+                "linux",
+                "devops",
+                "docker",
+                "network",
+                "networking",
+                "security",
+                "hardware",
+                "system administration",
+                "troubleshooting"
+        ));
+
+        // =================================================
+        // ISFP - ماجراجو
+        // خلاق، هنری و علاقه‌مند به طراحی و تجربه کاربری
+        // =================================================
+        map.put("ISFP", List.of(
+                "design",
+                "ui",
+                "ux",
+                "graphic design",
+                "graphics",
+                "frontend",
+                "html",
+                "css",
+                "javascript",
+                "figma",
+                "photoshop",
+                "illustration",
+                "creative",
+                "visual design"
+        ));
+
+        // =================================================
+        // ESTP - کارآفرین
+        // عمل‌گرا، سریع، اجتماعی و علاقه‌مند به کسب‌وکار و تکنولوژی
+        // =================================================
+        map.put("ESTP", List.of(
+                "sales",
+                "marketing",
+                "business",
+                "business development",
+                "product",
+                "product manager",
+                "startup",
+                "entrepreneur",
+                "consultant",
+                "customer success",
+                "communication",
+                "management",
+                "operations",
+                "frontend",
+                "developer"
+        ));
+
+        // =================================================
+        // ESFP - سرگرم‌کننده
+        // اجتماعی، خلاق، ارتباطی و علاقه‌مند به محتوا و تعامل
+        // =================================================
+        map.put("ESFP", List.of(
+                "marketing",
+                "content",
+                "content creator",
+                "social media",
+                "sales",
+                "communication",
+                "customer support",
+                "customer success",
+                "design",
+                "ui",
+                "ux",
+                "frontend",
+                "branding",
+                "public relations",
+                "event"
+        ));
 
         return map;
     }
