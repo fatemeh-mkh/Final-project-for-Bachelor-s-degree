@@ -21,7 +21,7 @@ Engineering`</em>`{=html}
 
 ------------------------------------------------------------------------
 
-## 📌 Overview
+##  Overview
 
 Finding a suitable internship is often more complicated than simply
 searching through job listings. Students need opportunities that match
@@ -50,7 +50,7 @@ PostgreSQL database.
 
 ------------------------------------------------------------------------
 
-## 🎯 Project Objectives
+##  Project Objectives
 
 The main objectives of Interno are to:
 
@@ -61,14 +61,13 @@ The main objectives of Interno are to:
 4.  Allow students to share and evaluate internship experiences.
 5.  Provide companies with tools for publishing opportunities and
     managing applications.
-6.  Implement secure authentication and role-based access control.
-7.  Provide a maintainable and extensible backend architecture.
+6.  Provide a maintainable and extensible backend architecture.
 
 ------------------------------------------------------------------------
 
-## ✨ Core Features
+##  Core Features
 
-### 👨‍🎓 Student
+### 1-Student
 
 -   Account registration and login
 -   Profile management
@@ -83,7 +82,7 @@ The main objectives of Interno are to:
 -   Rate internship experiences
 -   Receive notifications
 
-### 🏢 Company
+### 2-Company
 
 -   Company registration
 -   Company profile
@@ -92,7 +91,7 @@ The main objectives of Interno are to:
 -   Manage applicants
 -   Review internship applications
 
-### 🛡️ Admin
+###  3-Admin
 
 -   Administrative access
 -   User management
@@ -100,7 +99,7 @@ The main objectives of Interno are to:
 -   Internship advertisement management
 -   Platform-level control and monitoring
 
-### 🤖 Recommendation System
+###  4-Recommendation System
 
 Interno includes a rule-based recommendation engine that evaluates
 internship opportunities using three main dimensions:
@@ -123,7 +122,7 @@ reach the minimum recommendation threshold.
 
 ------------------------------------------------------------------------
 
-## 🧠 Personality-Based Matching
+##  Personality-Based Matching
 
 Interno incorporates **MBTI personality types** into its recommendation
 logic.
@@ -142,7 +141,7 @@ through a keyword-based mapping approach.
 
 ------------------------------------------------------------------------
 
-## 🔐 Authentication & Security
+##  Authentication & Security
 
 The backend uses **Spring Security** and **JWT (JSON Web Token)** based
 authentication.
@@ -162,7 +161,7 @@ control access according to user roles.
 
 ------------------------------------------------------------------------
 
-## 🏗️ System Architecture
+##  System Architecture
 
 Interno follows a layered architecture in the Spring Boot backend:
 
@@ -203,7 +202,7 @@ extensibility.
 
 ------------------------------------------------------------------------
 
-## 🗄️ Data Model
+##  Data Model
 
 The application uses **PostgreSQL** as its relational database.
 
@@ -225,7 +224,7 @@ The relationships between these entities are handled using
 
 ------------------------------------------------------------------------
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Backend
 
@@ -243,7 +242,7 @@ The relationships between these entities are handled using
   Bean Validation   Input validation
   PostgreSQL        Relational database
   Maven             Build & dependency management
-  Flyway            Database migration support
+ 
 
 ### Frontend
 
@@ -262,7 +261,7 @@ The frontend is maintained inside the same repository as the backend.
 
 ------------------------------------------------------------------------
 
-## 📁 Project Structure
+##  Project Structure
 
 ``` text
 Internship/
@@ -299,7 +298,7 @@ Internship/
 
 ------------------------------------------------------------------------
 
-## 📚 API Documentation
+##  API Documentation
 
 Interno provides interactive API documentation using
 **Swagger/OpenAPI**.
@@ -313,10 +312,6 @@ Swagger makes it possible to:
 
 When the application is running locally, Swagger UI is available at:
 
-``` text
-http://localhost:8080/swagger-ui.html
-```
-
 OpenAPI JSON:
 
 ``` text
@@ -325,7 +320,7 @@ http://localhost:8080/v3/api-docs
 
 ------------------------------------------------------------------------
 
-## 🧪 Testing
+##  Testing
 
 The project includes unit tests for important backend logic.
 
@@ -342,16 +337,9 @@ Tests can be executed using the Maven Wrapper.
 ``` powershell
 .\mvnw.cmd test
 ```
-
-### Linux / macOS
-
-``` bash
-./mvnw test
-```
-
 ------------------------------------------------------------------------
 
-## ⚙️ Configuration
+##  Configuration
 
 The application uses environment variables for sensitive configuration
 such as database credentials and the JWT secret.
@@ -374,7 +362,7 @@ This approach keeps sensitive values outside the source code.
 
 ------------------------------------------------------------------------
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -428,16 +416,9 @@ The backend runs locally on:
 ``` text
 http://localhost:8080
 ```
-
-Swagger UI:
-
-``` text
-http://localhost:8080/swagger-ui.html
-```
-
 ------------------------------------------------------------------------
 
-## 🔄 Development Workflow
+## Development Workflow
 
 The project uses Git for version control.
 
@@ -455,11 +436,10 @@ Git Push
 GitHub
 ```
 
-A GitHub Actions workflow is also included to automate CI checks.
-
+A GitHub Actions workflow is included to automate CI checks, with minor configuration adjustments needed for successful execution.
 ------------------------------------------------------------------------
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 Interno is designed to be extensible. Possible future improvements
 include:
@@ -501,15 +481,15 @@ The project demonstrates practical application of:
 
 ------------------------------------------------------------------------
 
-## 👩‍💻 Author
+##|Author|
 
-**Fatemeh Mokhtari**
+**Fatemeh Mokhtari, a Computer Engineering graduate from the University of Isfahan.**
 
-Computer Engineering
+
 
 ------------------------------------------------------------------------
 
-## 📄 License
+##  License
 
 This project was developed as an academic bachelor's degree final
 project.
